@@ -3,7 +3,7 @@ package Villagers;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Knight extends Villager {
+public class Knight extends Villager implements VillagerPrinter {
 
     // Weapons Enum used
     // Only knights have strength and weapons
@@ -60,6 +60,7 @@ public class Knight extends Villager {
     }
 
     // Print out knight info
+    @Override
     public void print() {
         System.out.println("Name: " + this.FirstName + " " + this.LastName);
         System.out.println("Age: " + this.Age);

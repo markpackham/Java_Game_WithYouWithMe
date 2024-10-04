@@ -1,6 +1,6 @@
 package Villagers;
 
-public class Farmer extends Villager {
+public class Farmer extends Villager implements VillagerPrinter {
 
     private FarmTools farmTools;
 
@@ -13,5 +13,12 @@ public class Farmer extends Villager {
 
     public FarmTools getSmithTools() {
         return farmTools;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Name: " + this.FirstName + " " + this.LastName);
+        System.out.println("Age: " + this.Age);
+        System.out.println("Skill Level: " + getSmithTools());
     }
 }

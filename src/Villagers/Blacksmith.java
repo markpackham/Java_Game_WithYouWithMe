@@ -1,11 +1,23 @@
 package Villagers;
 
-public class Blacksmith extends Villager {
+import java.util.Random;
+
+public class Blacksmith extends Villager implements VillagerPrinter {
 
     private SmithTools smithTools;
+    // Skill levels never change so can be stored in an array
+    private final String[] skillLevels = {"apprentice", "journeyman", "master"};
+    private String skillLevel;
 
     public Blacksmith(String firstName, String lastName, int age) {
         super(firstName, lastName, age);
+
+        Random rand = new Random();
+        // Select skill level at random
+        skillLevel = skillLevels[rand.nextInt(0, skillLevels.length)];
+
+        System.out.println("\nBlacksmith created\n");
+        print();
     }
 
     private void selectTool() {
@@ -13,5 +25,16 @@ public class Blacksmith extends Villager {
 
     public SmithTools getSmithTools() {
         return smithTools;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
+    }
+
+    @Override
+    public void print() {
+        System.out.println("Name: " + this.FirstName + " " + this.LastName);
+        System.out.println("Age: " + this.Age);
+        System.out.println("Skill Level: " + getSkillLevel());
     }
 }
