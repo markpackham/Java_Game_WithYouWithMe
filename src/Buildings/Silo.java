@@ -1,6 +1,6 @@
 package Buildings;
 
-public class Silo extends Building{
+public class Silo extends Building {
 
     // Storage in tonnes with a default of 120.5
     private double maxStorageCapacity = 120.5;

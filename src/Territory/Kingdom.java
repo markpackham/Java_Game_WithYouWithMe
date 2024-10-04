@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 // Villagers are held in a territory
-public class Kingdom extends Territory{
+public class Kingdom extends Territory {
 
     private final Scanner scanner;
 
@@ -41,9 +41,9 @@ public class Kingdom extends Territory{
         }
     }
 
-    public void printVillagers(){
-        for(Villager v: this.villagers){
-            if(v.getClass()==Knight.class){
+    public void printVillagers() {
+        for (Villager v : this.villagers) {
+            if (v.getClass() == Knight.class) {
                 ((Knight) v).print();
             }
         }

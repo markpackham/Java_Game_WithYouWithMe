@@ -2,7 +2,7 @@ package Buildings;
 
 import java.util.UUID;
 
-public class Fort extends Building{
+public class Fort extends Building {
 
     private final String houseID;
 
