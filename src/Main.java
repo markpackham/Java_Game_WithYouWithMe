@@ -6,7 +6,7 @@ import java.util.List;
 
 // Entry point for the game
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // Create an empty list of villagers
         List<Villager> villagers = new ArrayList<>();
