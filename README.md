@@ -34,7 +34,7 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 1) Run game
 
-2) Create a territory eg a Kingdom.
+2) Create a territory eg a kingdom.
 
 3) Add buildings to the territory eg forts.
 
