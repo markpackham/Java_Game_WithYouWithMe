@@ -1,19 +1,23 @@
 package Territory;
 
+import Buildings.Fort;
 import Villagers.Knight;
 import Villagers.Villager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// Villagers are held in a territory
+// Villagers and buildings are held in a kingdom
 public class Kingdom extends Territory {
 
     private final Scanner scanner;
+    private List<Fort> forts;
 
     public Kingdom(String name, List<Villager> villagers) {
         super(name, villagers);
         this.scanner = new Scanner(System.in);
+        this.forts = new ArrayList<>();
         initTerritory();
     }
 
@@ -26,9 +30,10 @@ public class Kingdom extends Territory {
 
         System.out.print("\nAll the people who live in " + this.name + "\n");
         printVillagers();
+        System.out.print("\nAll the forts\n");
+        printForts();
     }
 
-    // User must fill out the 3 villager parameters, then calls the Knight constructor
     private void populateTerritory(int iterations) {
         for (int i = 0; i < iterations; i++) {
             System.out.print("\nEnter Knight first name: ");
@@ -37,14 +42,44 @@ public class Kingdom extends Territory {
             String sName = scanner.nextLine();
             System.out.print("Enter Knight age: ");
             int age = Integer.parseInt(scanner.nextLine());
-            this.villagers.add(new Knight(fName, sName, age));
+            Knight knight = new Knight(fName, sName, age);
+            this.villagers.add(knight);
+
+            System.out.print("Enter Fort to station Knight at: ");
+            String fortName = scanner.nextLine();
+            // Put Knight in a fort
+            Fort fort = findOrCreateFort(fortName);
+            fort.addKnight(knight);
         }
+    }
+
+    // Build fort
+    private Fort findOrCreateFort(String fortName) {
+        for (Fort fort : forts) {
+            if (fort.getBuildingName().equals(fortName)) {
+                return fort;
+            }
+        }
+        // Change later dummy code
+        Fort newFort = new Fort(fortName, 1000, 5, 2);
+        forts.add(newFort);
+        return newFort;
     }
 
     public void printVillagers() {
         for (Villager v : this.villagers) {
+            // Print Knight
             if (v.getClass() == Knight.class) {
                 ((Knight) v).print();
+            }
+        }
+    }
+
+    public void printForts() {
+        for (Fort fort : forts) {
+            System.out.println("Fort: " + fort.getBuildingName() + ", ID: " + fort.getHouseID());
+            for (Knight knight : fort.getKnights()) {
+                knight.print();
             }
         }
     }

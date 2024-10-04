@@ -34,8 +34,12 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 1) Run game
 
-2) 
+2) Create a territory eg a Kingdom.
 
-3) 
+3) Add buildings to the territory eg forts.
 
-4) 
+4) Create types of villagers eg knights or blacksmiths.
+
+5) Assign the villager to their specific building.
+
+6) Once this is done the structure of the territory listing the name of the territory, the buildings, and the villagers assigned to each building will be shown.
