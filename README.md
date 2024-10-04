@@ -7,7 +7,8 @@ It includes the following:
 
 ## Game Purpose
 
-
+####
+To find the Javadoc as well as documents related to the project creation please go to the folder - "Notes & Ideas".
 
 ## Requirements
 
