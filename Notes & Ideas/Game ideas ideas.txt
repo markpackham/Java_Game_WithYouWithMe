@@ -5,3 +5,5 @@ Have gold and manage resources
 Mange against random elements - famine or feed knights (farmers), attacks (knights) (combine strength), buildings (more homes, increase population)
 
 Or player is a monster like a dragon, game based around picking fights and risking health Vs damage done to humans with points on damage done
+
+Have Kingdom & Empire, allow empire to be bigger than kingdom
