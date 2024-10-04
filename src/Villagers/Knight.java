@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Knight extends Villager{
 
     // Weapons Enum used
+    // Only knights have strength and weapons
     private Weapons weapon;
     private int strength;
 
@@ -25,14 +26,14 @@ public class Knight extends Villager{
     private void selectWeapon(){
         int i = 1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nSelect your weapon:");
+        System.out.println("\nSelect your weapon: ");
         // Iterate through Enum of weapons printing each
         for(Weapons w: Weapons.values()){
         System.out.println(i + ": " + w);
         i++;
         }
 
-        System.out.println("Enter weapons name: ");
+        System.out.println("Enter the weapon your knight uses.");
         String weap = scanner.nextLine();
         // Compares the input to all the possible Enum values
         for(Weapons w: Weapons.values()){
