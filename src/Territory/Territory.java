@@ -4,7 +4,7 @@ import Villagers.Villager;
 
 import java.util.List;
 
-public abstract class Territory {
+public class Territory {
 
     // Use protected so child classes can access
     protected String name;

@@ -24,7 +24,7 @@ public class Kingdom extends Territory{
         int numberOfVillagers = Integer.parseInt(scanner.nextLine());
         populateTerritory(numberOfVillagers);
 
-        System.out.print("\nAll the people who live there\n");
+        System.out.print("\nAll the people who live in " + this.name + "\n");
         printVillagers();
     }
 
