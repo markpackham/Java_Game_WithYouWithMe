@@ -5,6 +5,7 @@ import Villagers.Knight;
 import Villagers.Villager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,7 +62,35 @@ public class Kingdom extends Territory {
             }
         }
         // Change later dummy code
-        Fort newFort = new Fort(fortName, 1000, 5, 2);
+        int buildingYearBuilt;
+        // If user enters nothing use current year
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int windows;
+        int doors;
+
+
+        System.out.print("Enter year fort built (enter nothing to use current year): ");
+        try {
+            buildingYearBuilt = scanner.nextInt();
+        } catch (Exception e) {
+            buildingYearBuilt = currentYear;
+        }
+
+        System.out.print("Enter number of windows fort has (default is 10): ");
+        try {
+            windows = scanner.nextInt();
+        } catch (Exception e) {
+            windows = 10;
+        }
+
+        System.out.print("Enter number of doors fort has (default is 2): ");
+        try {
+            doors = scanner.nextInt();
+        } catch (Exception e) {
+            doors = 2;
+        }
+
+        Fort newFort = new Fort(fortName, buildingYearBuilt, windows, doors);
         forts.add(newFort);
         return newFort;
     }
