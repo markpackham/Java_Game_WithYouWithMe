@@ -8,17 +8,17 @@ import java.util.UUID;
 
 public class Fort extends Building {
 
-    private final String houseID;
+    private final String fortID;
     private List<Knight> knights;
 
     public Fort(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
-        this.houseID = UUID.randomUUID().toString();
+        this.fortID = UUID.randomUUID().toString();
         this.knights = new ArrayList<>();
     }
 
-    public String getHouseID() {
-        return houseID;
+    public String getFortID() {
+        return fortID;
     }
 
     public void addKnight(Knight knight) {
