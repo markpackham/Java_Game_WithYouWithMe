@@ -17,6 +17,9 @@ openjdk 21.0.4 2024-07-16 LTS
 OpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)
 OpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode, sharing)
 
+### Optional Requirements ###
+
+Unit testing done with junit-jupiter-5.8.1
 
 ### Install Dependencies & Run
 
