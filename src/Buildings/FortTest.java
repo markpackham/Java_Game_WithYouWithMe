@@ -25,6 +25,7 @@ class FortTest {
 
     @Test
     void testGetHouseID() {
+        // HouseID uses a UUID (ergo random) so we can only test to see if it is null
         assertNotNull(fort.getHouseID(), "HouseID must not be null");
     }
 
