@@ -46,3 +46,6 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 5) Assign the villager to their specific building.
 
 6) Once this is done the structure of the territory listing the name of the territory, the buildings, and the villagers assigned to each building will be shown.
+
+
+## Unfinished Aspects / Future Scope ##
