@@ -1,4 +1,4 @@
-Game ideas
+Game ideas / Brainstorming
 
 Have gold and manage resources
 
@@ -7,3 +7,6 @@ Mange against random elements - famine or feed knights (farmers), attacks (knigh
 Or player is a monster like a dragon, game based around picking fights and risking health Vs damage done to humans with points on damage done
 
 Have Kingdom & Empire, allow empire to be bigger than kingdom
+
+Stick with basics of project, focus less on gameplay & more on demo of OO in Java by creating a Knight in a Fort in a Kingdom.
+Show off other tools software engineer related things like creating UUIDs, Unit tests & showing JavaDoc
