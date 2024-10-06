@@ -1,5 +1,6 @@
-package Buildings;
+package Buildings.Tests;
 
+import Buildings.Fort;
 import Villagers.Knight;
 
 import java.util.List;
