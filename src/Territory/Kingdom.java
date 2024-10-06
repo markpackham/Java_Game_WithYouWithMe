@@ -106,7 +106,7 @@ public class Kingdom extends Territory {
 
     public void printForts() {
         for (Fort fort : forts) {
-            System.out.println("Fort: " + fort.getBuildingName() + ", ID: " + fort.getHouseID());
+            System.out.println("Fort: " + fort.getBuildingName() + ", ID: " + fort.getFortID());
             for (Knight knight : fort.getKnights()) {
                 knight.print();
             }
