@@ -35,17 +35,37 @@ public class Kingdom extends Territory implements ReadIntInput {
         System.out.print("\nName of territory: ");
         this.name = scanner.nextLine();
 
-        // Adding knights
-        System.out.print("How many knights live in your territory (0-10)?: ");
-        int numberOfKnights = Integer.parseInt(scanner.nextLine());
+        // Adding knights (can only be between 0-10)
+        int numberOfKnights = -1;
+        while (numberOfKnights < 0 || numberOfKnights > 10) {
+            System.out.print("How many knights live in your territory (0-10)?: ");
+            try {
+                numberOfKnights = Integer.parseInt(scanner.nextLine());
+                if (numberOfKnights < 0 || numberOfKnights > 10) {
+                    System.out.println("Please enter a number between 0 and 10.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, you can only have 0 to 10 knights!");
+            }
+        }
 
         if (numberOfKnights > 0) {
             populateTerritoryForts(numberOfKnights);
         }
 
-        // Adding blacksmiths
-        System.out.print("\nHow many smiths live in your territory (0-10)?: ");
-        int numberOfSmiths = Integer.parseInt(scanner.nextLine());
+        // Adding blacksmiths (can only be between 0-10)
+        int numberOfSmiths = -1;
+        while (numberOfSmiths < 0 || numberOfSmiths > 10) {
+            System.out.print("\nHow many smiths live in your territory (0-10)?: ");
+            try {
+                numberOfSmiths = Integer.parseInt(scanner.nextLine());
+                if (numberOfSmiths < 0 || numberOfSmiths > 10) {
+                    System.out.println("Please enter a number between 0 and 10.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input, you can only have 0 to 10 blacksmiths!");
+            }
+        }
 
         if (numberOfSmiths > 0) {
             populateTerritorySmiths(numberOfSmiths);

@@ -21,6 +21,9 @@ public class BlacksmithSchool extends Building {
         schoolLevel = schoolLevels[rand.nextInt(0, schoolLevels.length)];
     }
 
+    public String getSchoolLevel() {
+        return schoolLevel;
+    }
     public void addSmith(Blacksmith blacksmith) {
         this.blacksmiths.add(blacksmith);
     }
@@ -29,7 +32,4 @@ public class BlacksmithSchool extends Building {
         return schoolLevels;
     }
 
-    public String getSchoolLevel() {
-        return schoolLevel;
-    }
 }
