@@ -36,7 +36,7 @@ public class Kingdom extends Territory implements ReadIntInput {
         this.name = scanner.nextLine();
 
         // Adding knights
-        System.out.print("How many knights live in your territory?: ");
+        System.out.print("How many knights live in your territory (0-10)?: ");
         int numberOfKnights = Integer.parseInt(scanner.nextLine());
 
         if (numberOfKnights > 0) {
@@ -44,7 +44,7 @@ public class Kingdom extends Territory implements ReadIntInput {
         }
 
         // Adding blacksmiths
-        System.out.print("\nHow many smiths live in your territory?: ");
+        System.out.print("\nHow many smiths live in your territory (0-10)?: ");
         int numberOfSmiths = Integer.parseInt(scanner.nextLine());
 
         if (numberOfSmiths > 0) {
@@ -142,8 +142,8 @@ public class Kingdom extends Territory implements ReadIntInput {
     }
 
     // Build blacksmith school
-    private BlacksmithSchool findOrCreateBlacksmithSchool(){
-        
+    private BlacksmithSchool findOrCreateBlacksmithSchool(String blacksmithSchoolName){
+        return null;
     }
 
 
