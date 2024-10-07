@@ -15,4 +15,11 @@ public class Territory {
         this.villagers = villagers;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Villager> getVillagers() {
+        return villagers;
+    }
 }

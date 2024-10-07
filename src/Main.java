@@ -15,6 +15,7 @@ public class Main {
 
         // Test kingdom build
         Kingdom kingdom = new Kingdom("", villagers);
+        System.out.println("Report on The Kingdom of "+kingdom.getName() + " complete!");
 
     }
 }

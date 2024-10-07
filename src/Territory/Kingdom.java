@@ -61,35 +61,43 @@ public class Kingdom extends Territory {
                 return fort;
             }
         }
-        // Change later dummy code
-        int buildingYearBuilt;
         // If user enters nothing use current year
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int windows;
-        int doors;
-
+        int buildingYearBuilt = Calendar.getInstance().get(Calendar.YEAR);
+        // Have default values for windows and doors
+        int windows = 10;
+        int doors = 2;
 
         System.out.print("Enter year fort built (enter nothing to use current year): ");
-        try {
-            buildingYearBuilt = scanner.nextInt();
-        } catch (Exception e) {
-            buildingYearBuilt = currentYear;
+        String input = scanner.nextLine();
+        if (!input.isEmpty()) {
+            try {
+                buildingYearBuilt = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Using default year: " + buildingYearBuilt);
+            }
         }
 
         System.out.print("Enter number of windows fort has (default is 10): ");
-        try {
-            windows = scanner.nextInt();
-        } catch (Exception e) {
-            windows = 10;
+        input = scanner.nextLine();
+        if (!input.isEmpty()) {
+            try {
+                windows = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Using default windows: " + windows);
+            }
         }
 
         System.out.print("Enter number of doors fort has (default is 2): ");
-        try {
-            doors = scanner.nextInt();
-        } catch (Exception e) {
-            doors = 2;
+        input = scanner.nextLine();
+        if (!input.isEmpty()) {
+            try {
+                doors = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Using default doors: " + doors);
+            }
         }
 
+        // All forts are given an ID via UUID automatically so this doesn't need to be done here
         Fort newFort = new Fort(fortName, buildingYearBuilt, windows, doors);
         forts.add(newFort);
         return newFort;
@@ -106,7 +114,7 @@ public class Kingdom extends Territory {
 
     public void printForts() {
         for (Fort fort : forts) {
-            System.out.println("Fort: " + fort.getBuildingName() + ", ID: " + fort.getFortID());
+            System.out.println("Fort: " + fort.getBuildingName() + ", ID: " + fort.getFortID() + ", year build: " + fort.getBuildingYearBuilt() + ", windows: " + fort.getWindows() + ", doors: " + fort.getDoors());
             for (Knight knight : fort.getKnights()) {
                 knight.print();
             }

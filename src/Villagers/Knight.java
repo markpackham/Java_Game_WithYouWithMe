@@ -29,7 +29,7 @@ public class Knight extends Villager implements VillagerPrinter {
         System.out.println("\nSelect your weapon: ");
         // Iterate through Enum of weapons printing each
         for (Weapons w : Weapons.values()) {
-            System.out.println(i + ": " + w);
+            System.out.println(w);
             i++;
         }
 
