@@ -20,13 +20,6 @@ public class Kingdom extends Territory {
     private List<Forge> forges;
 
 
-    // Building defaults
-    // If user enters nothing use current year
-    int buildingYearBuilt = Calendar.getInstance().get(Calendar.YEAR);
-    int windows = 10;
-    int doors = 2;
-
-
     public Kingdom(String name, List<Villager> villagers) {
         super(name, villagers);
         this.scanner = new Scanner(System.in);
@@ -42,17 +35,24 @@ public class Kingdom extends Territory {
         // Adding knights
         System.out.print("How many knights live in your territory?: ");
         int numberOfKnights = Integer.parseInt(scanner.nextLine());
-        populateTerritory(numberOfKnights);
+        if(numberOfKnights>0){
+            populateTerritory(numberOfKnights);
+        }
 
         // Adding blacksmiths
         System.out.print("\nHow many smiths live in your territory?: ");
         int numberOfSmiths = Integer.parseInt(scanner.nextLine());
-        populateTerritorySmiths(numberOfKnights);
 
-        System.out.print("\nAll the people who live in " + this.name + "\n");
-        printVillagers();
+        if(numberOfSmiths>0){
+            populateTerritorySmiths(numberOfSmiths);
+        }
+
+        System.out.print("\nForts & Forge inhabitants of " + this.name + "\n");
+
         System.out.print("\nAll the forts\n");
         printForts();
+        System.out.print("\nAll the forges\n");
+        printForges();
     }
 
     private void populateTerritory(int iterations) {
@@ -97,44 +97,17 @@ public class Kingdom extends Territory {
 
     // Build forge
     private Forge findOrCreateForge(String forgeName) {
-
         for (Forge forge : forges) {
             if (forge.getBuildingName().equals(forgeName)) {
                 return forge;
             }
         }
 
-        System.out.print("Enter year fort built (enter nothing to use current year): ");
-        String input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                buildingYearBuilt = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default year: " + buildingYearBuilt);
-            }
-        }
+        int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows forge has (default is 10): ", 4);
+        int doors = readIntInput("Enter number of doors forge has (default is 2): ", 1);
 
-        System.out.print("Enter number of windows fort has (default is 10): ");
-        input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                windows = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default windows: " + windows);
-            }
-        }
-
-        System.out.print("Enter number of doors fort has (default is 2): ");
-        input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                doors = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default doors: " + doors);
-            }
-        }
-
-        Forge newForge = new Forge(forgeName,buildingYearBuilt, windows, doors);
+        Forge newForge = new Forge(forgeName, buildingYearBuilt, windows, doors);
         forges.add(newForge);
         return newForge;
     }
@@ -147,40 +120,28 @@ public class Kingdom extends Territory {
             }
         }
 
-        System.out.print("Enter year fort built (enter nothing to use current year): ");
-        String input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                buildingYearBuilt = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default year: " + buildingYearBuilt);
-            }
-        }
-
-        System.out.print("Enter number of windows fort has (default is 10): ");
-        input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                windows = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default windows: " + windows);
-            }
-        }
-
-        System.out.print("Enter number of doors fort has (default is 2): ");
-        input = scanner.nextLine();
-        if (!input.isEmpty()) {
-            try {
-                doors = Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Using default doors: " + doors);
-            }
-        }
+        int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows forge has (default is 10): ", 10);
+        int doors = readIntInput("Enter number of doors forge has (default is 2): ", 2);
 
         // All forts are given an ID via UUID automatically so this doesn't need to be done here
         Fort newFort = new Fort(fortName, buildingYearBuilt, windows, doors);
         forts.add(newFort);
         return newFort;
+    }
+
+    // Read inputs for forge and fort
+    private int readIntInput(String prompt, int defaultValue) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        if (!input.isEmpty()) {
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Using default value: " + defaultValue);
+            }
+        }
+        return defaultValue;
     }
 
     public void printVillagers() {
@@ -202,6 +163,16 @@ public class Kingdom extends Territory {
             System.out.println("Knights: ");
             for (Knight knight : fort.getKnights()) {
                 knight.print();
+            }
+        }
+    }
+
+    public void printForges(){
+        for (Forge forge : forges) {
+            System.out.println("\nForge: " + forge.getBuildingName() + ", year built: " + forge.getBuildingYearBuilt() + ", windows: " + forge.getWindows() + ", doors: " + forge.getDoors());
+            System.out.println("Blacksmiths: ");
+            for (Blacksmith blacksmith : forge.getBlacksmiths()) {
+                blacksmith.print();
             }
         }
     }
