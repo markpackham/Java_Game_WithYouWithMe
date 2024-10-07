@@ -34,7 +34,7 @@ public class Main {
 //        Farmland farmland = new Farmland("", villagers);
 //        System.out.println("Report on The Farmland of "+farmland.getName() + " complete!\n");
 
-        System.out.println("\nProcess Finished!");
+        System.out.println("\nReport Finished!");
 
     }
 }

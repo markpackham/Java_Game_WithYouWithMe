@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 // Villagers and buildings are held in a kingdom
 // They can have forts with knights and forges with blacksmiths but NOT farmers with silos
-public class Kingdom extends Territory {
+public class Kingdom extends Territory implements ReadIntInput {
 
     private final Scanner scanner;
     private List<Fort> forts;
@@ -35,15 +35,16 @@ public class Kingdom extends Territory {
         // Adding knights
         System.out.print("How many knights live in your territory?: ");
         int numberOfKnights = Integer.parseInt(scanner.nextLine());
-        if(numberOfKnights>0){
-            populateTerritory(numberOfKnights);
+
+        if (numberOfKnights > 0) {
+            populateTerritoryForts(numberOfKnights);
         }
 
         // Adding blacksmiths
         System.out.print("\nHow many smiths live in your territory?: ");
         int numberOfSmiths = Integer.parseInt(scanner.nextLine());
 
-        if(numberOfSmiths>0){
+        if (numberOfSmiths > 0) {
             populateTerritorySmiths(numberOfSmiths);
         }
 
@@ -55,61 +56,44 @@ public class Kingdom extends Territory {
         printForges();
     }
 
-    private void populateTerritory(int iterations) {
+    private void populateTerritoryForts(int iterations) {
 
-            for (int i = 0; i < iterations; i++) {
-                System.out.print("\nEnter Knight first name: ");
-                String fName = scanner.nextLine();
-                System.out.print("Enter Knight last name: ");
-                String sName = scanner.nextLine();
-                System.out.print("Enter Knight age: ");
-                int age = Integer.parseInt(scanner.nextLine());
-                Knight knight = new Knight(fName, sName, age);
-                this.villagers.add(knight);
+        for (int i = 0; i < iterations; i++) {
+            System.out.print("\nEnter Knight first name: ");
+            String fName = scanner.nextLine();
+            System.out.print("Enter Knight last name: ");
+            String sName = scanner.nextLine();
+            System.out.print("Enter Knight age: ");
+            int age = Integer.parseInt(scanner.nextLine());
+            Knight knight = new Knight(fName, sName, age);
+            this.villagers.add(knight);
 
-                System.out.print("Enter Fort to station Knight at: ");
-                String fortName = scanner.nextLine();
-                // Put Knight in a fort
-                Fort fort = findOrCreateFort(fortName);
-                fort.addKnight(knight);
-            }
+            System.out.print("Enter Fort to station Knight at: ");
+            String fortName = scanner.nextLine();
+            // Put Knight in a fort
+            Fort fort = findOrCreateFort(fortName);
+            fort.addKnight(knight);
+        }
     }
 
     private void populateTerritorySmiths(int iterations) {
 
-            for (int i = 0; i < iterations; i++) {
-                System.out.print("\nEnter Blacksmith first name: ");
-                String fName = scanner.nextLine();
-                System.out.print("Enter Blacksmith last name: ");
-                String sName = scanner.nextLine();
-                System.out.print("Enter Blacksmith age: ");
-                int age = Integer.parseInt(scanner.nextLine());
-                Blacksmith blacksmith = new Blacksmith(fName, sName, age);
-                this.villagers.add(blacksmith);
+        for (int i = 0; i < iterations; i++) {
+            System.out.print("\nEnter Blacksmith first name: ");
+            String fName = scanner.nextLine();
+            System.out.print("Enter Blacksmith last name: ");
+            String sName = scanner.nextLine();
+            System.out.print("Enter Blacksmith age: ");
+            int age = Integer.parseInt(scanner.nextLine());
+            Blacksmith blacksmith = new Blacksmith(fName, sName, age);
+            this.villagers.add(blacksmith);
 
-                System.out.print("Enter Forge to station smith at: ");
-                String forgeName = scanner.nextLine();
-                // Put Blacksmith in a fort
-                Forge forge = findOrCreateForge(forgeName);
-                forge.addSmith(blacksmith);
-            }
-    }
-
-    // Build forge
-    private Forge findOrCreateForge(String forgeName) {
-        for (Forge forge : forges) {
-            if (forge.getBuildingName().equals(forgeName)) {
-                return forge;
-            }
+            System.out.print("Enter Forge to station smith at: ");
+            String forgeName = scanner.nextLine();
+            // Put Blacksmith in a fort
+            Forge forge = findOrCreateForge(forgeName);
+            forge.addSmith(blacksmith);
         }
-
-        int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
-        int windows = readIntInput("Enter number of windows forge has (default is 10): ", 4);
-        int doors = readIntInput("Enter number of doors forge has (default is 2): ", 1);
-
-        Forge newForge = new Forge(forgeName, buildingYearBuilt, windows, doors);
-        forges.add(newForge);
-        return newForge;
     }
 
     // Build fort
@@ -130,8 +114,26 @@ public class Kingdom extends Territory {
         return newFort;
     }
 
-    // Read inputs for forge and fort
-    private int readIntInput(String prompt, int defaultValue) {
+    // Build forge
+    private Forge findOrCreateForge(String forgeName) {
+        for (Forge forge : forges) {
+            if (forge.getBuildingName().equals(forgeName)) {
+                return forge;
+            }
+        }
+
+        int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows forge has (default is 10): ", 4);
+        int doors = readIntInput("Enter number of doors forge has (default is 2): ", 1);
+
+        Forge newForge = new Forge(forgeName, buildingYearBuilt, windows, doors);
+        forges.add(newForge);
+        return newForge;
+    }
+
+    // Read inputs for forge, blacksmith school & fort
+    @Override
+    public int readIntInput(String prompt, int defaultValue) {
         System.out.print(prompt);
         String input = scanner.nextLine();
         if (!input.isEmpty()) {
@@ -143,6 +145,7 @@ public class Kingdom extends Territory {
         }
         return defaultValue;
     }
+
 
     public void printVillagers() {
         for (Villager v : this.villagers) {
@@ -167,9 +170,15 @@ public class Kingdom extends Territory {
         }
     }
 
-    public void printForges(){
+    public void printForges() {
         for (Forge forge : forges) {
-            System.out.println("\nForge: " + forge.getBuildingName() + ", year built: " + forge.getBuildingYearBuilt() + ", windows: " + forge.getWindows() + ", doors: " + forge.getDoors());
+            System.out.println("\nForge: " + forge.getBuildingName() + ", year built: " + forge.getBuildingYearBuilt() + ", windows: " + forge.getWindows() + ", doors: " + forge.getDoors()
+            );
+
+            if (forge.isHasLumberMill()) {
+                System.out.println("This forge has a lumber mill!");
+            }
+
             System.out.println("Blacksmiths: ");
             for (Blacksmith blacksmith : forge.getBlacksmiths()) {
                 blacksmith.print();
