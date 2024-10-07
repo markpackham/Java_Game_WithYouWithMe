@@ -1,6 +1,7 @@
 package Buildings;
 
 import Villagers.Blacksmith;
+import Villagers.Knight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,10 @@ public class Forge extends Building {
 
     public boolean isHasLumberMill() {
         return hasLumberMill;
+    }
+
+    public void addSmith(Blacksmith blacksmith) {
+        this.blacksmiths.add(blacksmith);
     }
 
     public List<Blacksmith> getBlacksmiths() {

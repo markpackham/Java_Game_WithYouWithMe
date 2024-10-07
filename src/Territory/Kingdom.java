@@ -1,6 +1,8 @@
 package Territory;
 
+import Buildings.Forge;
 import Buildings.Fort;
+import Villagers.Blacksmith;
 import Villagers.Knight;
 import Villagers.Villager;
 
@@ -15,20 +17,37 @@ public class Kingdom extends Territory {
 
     private final Scanner scanner;
     private List<Fort> forts;
+    private List<Forge> forges;
+
+
+    // Building defaults
+    // If user enters nothing use current year
+    int buildingYearBuilt = Calendar.getInstance().get(Calendar.YEAR);
+    int windows = 10;
+    int doors = 2;
+
 
     public Kingdom(String name, List<Villager> villagers) {
         super(name, villagers);
         this.scanner = new Scanner(System.in);
         this.forts = new ArrayList<>();
+        this.forges = new ArrayList<>();
         initTerritory();
     }
 
     private void initTerritory() {
         System.out.print("\nName of territory: ");
         this.name = scanner.nextLine();
-        System.out.print("How many people live in your territory?: ");
-        int numberOfVillagers = Integer.parseInt(scanner.nextLine());
-        populateTerritory(numberOfVillagers);
+
+        // Adding knights
+        System.out.print("How many knights live in your territory?: ");
+        int numberOfKnights = Integer.parseInt(scanner.nextLine());
+        populateTerritory(numberOfKnights);
+
+        // Adding blacksmiths
+        System.out.print("How many smiths live in your territory?: ");
+        int numberOfSmiths = Integer.parseInt(scanner.nextLine());
+        populateTerritorySmiths(numberOfKnights);
 
         System.out.print("\nAll the people who live in " + this.name + "\n");
         printVillagers();
@@ -55,6 +74,39 @@ public class Kingdom extends Territory {
         }
     }
 
+    private void populateTerritorySmiths(int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            System.out.print("\nEnter Blacksmith first name: ");
+            String fName = scanner.nextLine();
+            System.out.print("Enter Blacksmith last name: ");
+            String sName = scanner.nextLine();
+            System.out.print("Enter Blacksmith age: ");
+            int age = Integer.parseInt(scanner.nextLine());
+            Blacksmith blacksmith = new Blacksmith(fName, sName, age);
+            this.villagers.add(blacksmith);
+
+            System.out.print("Enter Forge to station smith at: ");
+            String forgeName = scanner.nextLine();
+            // Put Knight in a fort
+            Forge forge = findOrCreateForge(forgeName);
+            forge.addSmith(blacksmith);
+        }
+    }
+
+    // Build forge
+    private Forge findOrCreateForge(String forgeName) {
+
+        for (Forge forge : forges) {
+            if (forge.getBuildingName().equals(forgeName)) {
+                return forge;
+            }
+        }
+
+        Forge newForge = new Forge(forgeName,buildingYearBuilt, windows, doors);
+        forges.add(newForge);
+        return newForge;
+    }
+
     // Build fort
     private Fort findOrCreateFort(String fortName) {
         for (Fort fort : forts) {
@@ -62,11 +114,6 @@ public class Kingdom extends Territory {
                 return fort;
             }
         }
-        // If user enters nothing use current year
-        int buildingYearBuilt = Calendar.getInstance().get(Calendar.YEAR);
-        // Have default values for windows and doors
-        int windows = 10;
-        int doors = 2;
 
         System.out.print("Enter year fort built (enter nothing to use current year): ");
         String input = scanner.nextLine();
