@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 // Villagers and buildings are held in a kingdom
+// They can have forts with knights and forges with blacksmiths but NOT farmers with silos
 public class Kingdom extends Territory {
 
     private final Scanner scanner;

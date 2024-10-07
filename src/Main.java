@@ -1,3 +1,4 @@
+import Territory.Farmland;
 import Territory.Kingdom;
 import Villagers.Villager;
 
@@ -11,11 +12,15 @@ public class Main {
         // Create an empty list of villagers
         List<Villager> villagers = new ArrayList<>();
 
-        System.out.println("Welcome to the Game!");
-
-        // Test kingdom build
+        // Kingdom creation
+        System.out.println("First please create your kingdom");
         Kingdom kingdom = new Kingdom("", villagers);
-        System.out.println("Report on The Kingdom of "+kingdom.getName() + " complete!");
+        System.out.println("Report on The Kingdom of "+kingdom.getName() + " complete!\n");
+
+        // Farmland creation
+//        System.out.println("Now create the farmland to feed this kingdom");
+//        Farmland farmland = new Farmland("", villagers);
+//        System.out.println("Report on The Farmland of "+farmland.getName() + " complete!\n");
 
     }
 }
