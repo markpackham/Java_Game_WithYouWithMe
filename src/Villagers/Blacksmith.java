@@ -20,9 +20,6 @@ public class Blacksmith extends Villager implements VillagerPrinter {
         print();
     }
 
-    private void selectTool() {
-    }
-
     public SmithTools getSmithTools() {
         return smithTools;
     }
