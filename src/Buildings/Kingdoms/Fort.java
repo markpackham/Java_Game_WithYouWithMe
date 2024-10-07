@@ -1,5 +1,6 @@
-package Buildings;
+package Buildings.Kingdoms;
 
+import Buildings.Building;
 import Villagers.Knight;
 
 import java.util.ArrayList;

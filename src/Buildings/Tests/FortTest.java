@@ -1,6 +1,6 @@
 package Buildings.Tests;
 
-import Buildings.Fort;
+import Buildings.Kingdoms.Fort;
 import Villagers.Knight;
 
 import java.util.List;

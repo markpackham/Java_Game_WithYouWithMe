@@ -1,7 +1,7 @@
 package Territory;
 
-import Buildings.Forge;
-import Buildings.Fort;
+import Buildings.Kingdoms.Forge;
+import Buildings.Kingdoms.Fort;
 import Villagers.Blacksmith;
 import Villagers.Knight;
 import Villagers.Villager;
