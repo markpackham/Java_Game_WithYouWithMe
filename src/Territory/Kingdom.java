@@ -1,5 +1,6 @@
 package Territory;
 
+import Buildings.Kingdoms.BlacksmithSchool;
 import Buildings.Kingdoms.Forge;
 import Buildings.Kingdoms.Fort;
 import Villagers.Blacksmith;
@@ -18,6 +19,7 @@ public class Kingdom extends Territory implements ReadIntInput {
     private final Scanner scanner;
     private List<Fort> forts;
     private List<Forge> forges;
+    private List<BlacksmithSchool> blacksmithSchools;
 
 
     public Kingdom(String name, List<Villager> villagers) {
@@ -25,6 +27,7 @@ public class Kingdom extends Territory implements ReadIntInput {
         this.scanner = new Scanner(System.in);
         this.forts = new ArrayList<>();
         this.forges = new ArrayList<>();
+        this.blacksmithSchools = new ArrayList<>();
         initTerritory();
     }
 
@@ -90,9 +93,16 @@ public class Kingdom extends Territory implements ReadIntInput {
 
             System.out.print("Enter Forge to station smith at: ");
             String forgeName = scanner.nextLine();
-            // Put Blacksmith in a fort
+            // Put a blacksmith with a forge
             Forge forge = findOrCreateForge(forgeName);
             forge.addSmith(blacksmith);
+
+            System.out.print("Enter which schools the smith belongs to: ");
+            String blacksmithSchoolName = scanner.nextLine();
+            // Associate a blacksmith with a school
+            BlacksmithSchool blacksmithSchool = findOrCreateBlacksmithSchool(blacksmithSchoolName);
+            blacksmithSchool.addSmith(blacksmith);
+
         }
     }
 
@@ -130,6 +140,12 @@ public class Kingdom extends Territory implements ReadIntInput {
         forges.add(newForge);
         return newForge;
     }
+
+    // Build blacksmith school
+    private BlacksmithSchool findOrCreateBlacksmithSchool(){
+        
+    }
+
 
     // Read inputs for forge, blacksmith school & fort
     @Override
