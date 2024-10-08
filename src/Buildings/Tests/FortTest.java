@@ -2,15 +2,13 @@ package Buildings.Tests;
 
 import Buildings.Kingdoms.Fort;
 import Villagers.Knight;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-// Unit tests from JUnit
-// https://www.jetbrains.com/help/idea/create-tests.html#naming-pattern-for-tests
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class FortTest {
 
