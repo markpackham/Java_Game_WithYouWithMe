@@ -89,17 +89,39 @@ public class Kingdom extends Territory implements ReadIntInput {
 
     private void populateTerritoryForts(int iterations) {
 
+        // Force entry of a first name & surname for knight
         for (int i = 0; i < iterations; i++) {
-            System.out.print("\nEnter Knight first name: ");
-            String fName = scanner.nextLine();
-            System.out.print("Enter Knight last name: ");
-            String sName = scanner.nextLine();
-            System.out.print("Enter Knight age: ");
-            int age = Integer.parseInt(scanner.nextLine());
+            String fName;
+            do {
+                System.out.print("\nEnter first name: ");
+                fName = scanner.nextLine();
+            } while (fName.trim().isEmpty());
+
+            // Use surname instead of last name, more ye-old
+            String sName;
+            do {
+                System.out.print("Enter surname: ");
+                sName = scanner.nextLine();
+            } while (sName.trim().isEmpty());
+
+            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            // If user makes a mistake or enters nothing force the age to be 20
+            int age;
+            try {
+                age = Integer.parseInt(scanner.nextLine());
+                if (age < 12 || age > 100) {
+                    System.out.println("Age must be between 12 and 100. default is 20.");
+                    age = 20;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Setting default age to 20.");
+                age = 20;
+            }
+
             Knight knight = new Knight(fName, sName, age);
             this.villagers.add(knight);
 
-            System.out.print("Enter Fort to station Knight at: ");
+            System.out.print("Enter fort to station knight at: ");
             String fortName = scanner.nextLine();
             // Put Knight in a fort
             Fort fort = findOrCreateFort(fortName);
@@ -107,12 +129,13 @@ public class Kingdom extends Territory implements ReadIntInput {
         }
     }
 
+
     private void populateTerritorySmiths(int iterations) {
 
         for (int i = 0; i < iterations; i++) {
             System.out.print("\nEnter Blacksmith first name: ");
             String fName = scanner.nextLine();
-            System.out.print("Enter Blacksmith last name: ");
+            System.out.print("Enter Blacksmith surname: ");
             String sName = scanner.nextLine();
             System.out.print("Enter Blacksmith age: ");
             int age = Integer.parseInt(scanner.nextLine());
