@@ -19,7 +19,7 @@ public class BlacksmithSchool extends Building {
 
         Random rand = new Random();
         // Select school level at random
-        schoolLevel = schoolLevels[rand.nextInt(0, schoolLevels.length)];
+        this.schoolLevel = schoolLevels[rand.nextInt(0, schoolLevels.length)];
         this.blacksmiths = new ArrayList<>();
     }
 
