@@ -1,6 +1,5 @@
 package Territory;
 
-import Buildings.Building;
 import Buildings.Kingdoms.BlacksmithSchool;
 import Buildings.Kingdoms.Forge;
 import Buildings.Kingdoms.Fort;
@@ -136,8 +135,8 @@ public class Kingdom extends Territory implements ReadIntInput {
             String fortName = scanner.nextLine();
 
             // Use the Kingdom's name and "Fort" if user fails to enter anything
-            if(fortName.isEmpty()){
-                fortName = "Fort "+this.name;
+            if (fortName.isEmpty()) {
+                fortName = "Fort " + this.name;
             }
 
             // Put Knight in a fort
@@ -186,8 +185,8 @@ public class Kingdom extends Territory implements ReadIntInput {
             String forgeName = scanner.nextLine();
 
             // Use the Kingdom's name and "Forge" if user fails to enter anything
-            if(forgeName.isEmpty()){
-                forgeName = "Forge "+this.name;
+            if (forgeName.isEmpty()) {
+                forgeName = "Forge " + this.name;
             }
 
             // Put a blacksmith with a forge
@@ -198,8 +197,8 @@ public class Kingdom extends Territory implements ReadIntInput {
             String blacksmithSchoolName = scanner.nextLine();
 
             // Use the Kingdom's name and "Blacksmith School" if user fails to enter anything
-            if(blacksmithSchoolName.isEmpty()){
-                blacksmithSchoolName = "Blacksmith School "+this.name;
+            if (blacksmithSchoolName.isEmpty()) {
+                blacksmithSchoolName = "Blacksmith School " + this.name;
             }
 
             // Associate a blacksmith with a school
@@ -244,9 +243,9 @@ public class Kingdom extends Territory implements ReadIntInput {
     }
 
     // Build blacksmith school
-    private BlacksmithSchool findOrCreateBlacksmithSchool(String blacksmithSchoolName){
-        for (BlacksmithSchool blacksmithSchool: blacksmithSchools){
-            if(blacksmithSchool.getBuildingName().equals(blacksmithSchoolName)){
+    private BlacksmithSchool findOrCreateBlacksmithSchool(String blacksmithSchoolName) {
+        for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
+            if (blacksmithSchool.getBuildingName().equals(blacksmithSchoolName)) {
                 return blacksmithSchool;
             }
         }
@@ -304,11 +303,11 @@ public class Kingdom extends Territory implements ReadIntInput {
         }
     }
 
-    public void printBlacksmithSchools(){
+    public void printBlacksmithSchools() {
         for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
             System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors()
             );
-            System.out.println("School Teaching Level -"+blacksmithSchool.getSchoolLevel());
+            System.out.println("School Teaching Level -" + blacksmithSchool.getSchoolLevel());
 
             System.out.println("Blacksmiths: ");
             System.out.println("______");
