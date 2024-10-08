@@ -1,5 +1,7 @@
 package Villagers;
 
+import Villagers.Equipment.FarmTools;
+
 import java.util.Scanner;
 
 public class Farmer extends Villager implements VillagerPrinter {

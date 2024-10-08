@@ -1,5 +1,7 @@
 package Villagers;
 
+import Villagers.Equipment.Weapons;
+
 import java.util.Random;
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Villagers;
+package Villagers.Equipment;
 
 // Weapons used by the Knight class
 public enum Weapons {

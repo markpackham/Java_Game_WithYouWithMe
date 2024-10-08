@@ -1,5 +1,7 @@
 package Villagers;
 
+import Villagers.Equipment.SmithTools;
+
 import java.util.Random;
 
 public class Blacksmith extends Villager implements VillagerPrinter {

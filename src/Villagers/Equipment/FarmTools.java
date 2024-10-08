@@ -1,4 +1,4 @@
-package Villagers;
+package Villagers.Equipment;
 
 public enum FarmTools {
     Sickle,
