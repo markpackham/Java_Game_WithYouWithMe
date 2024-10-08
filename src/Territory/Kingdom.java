@@ -77,6 +77,8 @@ public class Kingdom extends Territory implements ReadIntInput {
         printForts();
         System.out.print("\nAll the forges\n");
         printForges();
+        System.out.print("\nAll the blacksmith schools\n");
+        printBlacksmithSchools();
     }
 
     private void populateTerritoryForts(int iterations) {
@@ -221,4 +223,19 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
         }
     }
+
+    public void printBlacksmithSchools(){
+        for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
+            System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors()
+            );
+
+            System.out.println("School Teaching Level -"+blacksmithSchool.getSchoolLevel());
+
+            System.out.println("Blacksmiths: ");
+            for (Blacksmith blacksmith : blacksmithSchool.getBlacksmiths()) {
+                blacksmith.print();
+            }
+        }
+    }
+
 }
