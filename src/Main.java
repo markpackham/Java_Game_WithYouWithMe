@@ -20,7 +20,6 @@ public class Main {
 
         // Kingdom creation
         System.out.println("Do you want to create a Kingdom, please enter 'y' for 'yes' or anything else for 'no'?");
-
         // If user has capslock on change word to lower case
         String answer = scanner.nextLine().toLowerCase();
 
@@ -30,9 +29,13 @@ public class Main {
         }
 
         // Farmland creation
-//        System.out.println("Now create the farmland to feed this kingdom");
-//        Farmland farmland = new Farmland("", villagers);
-//        System.out.println("Report on The Farmland of "+farmland.getName() + " complete!\n");
+        System.out.println("Do you want to create some farmland, please enter 'y' for 'yes' or anything else for 'no'?");
+        String answerFarmland = scanner.nextLine().toLowerCase();
+
+        if(answerFarmland.equals("y") || answerFarmland.equals("yes")){
+            Farmland farmland = new Farmland("", villagers);
+            System.out.println("Report on the farmland of "+farmland.getName() + " complete!\n");
+        }
 
         System.out.println("\nReport Finished!");
 

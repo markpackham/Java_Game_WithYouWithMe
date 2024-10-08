@@ -37,16 +37,19 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 1) Run game
 
-2) Create a territory eg a kingdom.
+2) Create a territory of type kingdom.
 
-3) Create a set number of knights (0-10)
+3) Create a set number of knights (0-10).
 
 4) Assign the knights to forts that you created.
 
-5) Create a set of blacksmiths (0-10)
+5) Create a set of blacksmiths (0-10).
 
-6) Assign the blacksmiths to forges and blacksmith schools
+6) Assign the blacksmiths to forges and blacksmith schools.
 
+7) A report of the kingdom is generated.
+
+8) Create a territory of type farmland.
 
 10000) Once this is done the structure of the territory listing the name of the territory, the buildings, and the villagers assigned to each building will be shown.
 
