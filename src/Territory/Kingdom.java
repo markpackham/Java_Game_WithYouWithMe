@@ -33,9 +33,6 @@ public class Kingdom extends Territory implements ReadIntInput {
 
     private void initTerritory() {
 
-        System.out.print("\nName of kingdom: ");
-        this.name = scanner.nextLine();
-
         // Keep user in loop till they give the territory a name
         while (true) {
             System.out.print("\nName of kingdom: ");
