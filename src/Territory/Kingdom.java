@@ -32,8 +32,21 @@ public class Kingdom extends Territory implements ReadIntInput {
     }
 
     private void initTerritory() {
-        System.out.print("\nName of territory: ");
+
+        System.out.print("\nName of kingdom: ");
         this.name = scanner.nextLine();
+
+        // Keep user in loop till they give the territory a name
+        while (true) {
+            System.out.print("\nName of kingdom: ");
+            // use .trim() to remove white space should the user hit space then return
+            this.name = scanner.nextLine().trim();
+            if (!this.name.isEmpty()) {
+                break;
+            }
+            System.out.println("Kingdom name cannot be blank. Please enter a value.");
+        }
+
 
         // Adding knights (can only be between 0-10)
         int numberOfKnights = -1;
@@ -121,8 +134,14 @@ public class Kingdom extends Territory implements ReadIntInput {
             Knight knight = new Knight(fName, sName, age);
             this.villagers.add(knight);
 
-            System.out.print("Enter fort to station knight at: ");
+            System.out.print("\nEnter fort to station knight at: ");
             String fortName = scanner.nextLine();
+
+            // Use the Kingdom's name and "Fort" if user fails to enter anything
+            if(fortName.isEmpty()){
+                fortName = "Fort "+this.name;
+            }
+
             // Put Knight in a fort
             Fort fort = findOrCreateFort(fortName);
             fort.addKnight(knight);
@@ -132,24 +151,58 @@ public class Kingdom extends Territory implements ReadIntInput {
 
     private void populateTerritorySmiths(int iterations) {
 
+        // Force entry of a first name & surname for blacksmith
         for (int i = 0; i < iterations; i++) {
-            System.out.print("\nEnter Blacksmith first name: ");
-            String fName = scanner.nextLine();
-            System.out.print("Enter Blacksmith surname: ");
-            String sName = scanner.nextLine();
-            System.out.print("Enter Blacksmith age: ");
-            int age = Integer.parseInt(scanner.nextLine());
+            String fName;
+            do {
+                System.out.print("\nEnter first name: ");
+                fName = scanner.nextLine();
+            } while (fName.trim().isEmpty());
+
+            // Use surname instead of last name, more ye-old
+            String sName;
+            do {
+                System.out.print("Enter surname: ");
+                sName = scanner.nextLine();
+            } while (sName.trim().isEmpty());
+
+            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            // If user makes a mistake or enters nothing force the age to be 20
+            int age;
+            try {
+                age = Integer.parseInt(scanner.nextLine());
+                if (age < 12 || age > 100) {
+                    System.out.println("Age must be between 12 and 100. default is 20.");
+                    age = 20;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Setting default age to 20.");
+                age = 20;
+            }
+
             Blacksmith blacksmith = new Blacksmith(fName, sName, age);
             this.villagers.add(blacksmith);
 
-            System.out.print("Enter the forge to station the smith at: ");
+            System.out.print("\nEnter the forge to station the smith at: ");
             String forgeName = scanner.nextLine();
+
+            // Use the Kingdom's name and "Forge" if user fails to enter anything
+            if(forgeName.isEmpty()){
+                forgeName = "Forge "+this.name;
+            }
+
             // Put a blacksmith with a forge
             Forge forge = findOrCreateForge(forgeName);
             forge.addSmith(blacksmith);
 
-            System.out.print("Enter which school the smith belongs to: ");
+            System.out.print("\nEnter which blacksmith school the smith belongs to: ");
             String blacksmithSchoolName = scanner.nextLine();
+
+            // Use the Kingdom's name and "Blacksmith School" if user fails to enter anything
+            if(blacksmithSchoolName.isEmpty()){
+                blacksmithSchoolName = "Blacksmith School "+this.name;
+            }
+
             // Associate a blacksmith with a school
             BlacksmithSchool blacksmithSchool = findOrCreateBlacksmithSchool(blacksmithSchoolName);
             blacksmithSchool.addSmith(blacksmith);
@@ -242,7 +295,8 @@ public class Kingdom extends Territory implements ReadIntInput {
     public void printForts() {
         for (Fort fort : forts) {
             System.out.println("\nFort: " + fort.getBuildingName() + ", ID: " + fort.getFortID() + ", year built: " + fort.getBuildingYearBuilt() + ", windows: " + fort.getWindows() + ", doors: " + fort.getDoors());
-            System.out.println("Knights: ");
+            System.out.println("Knights");
+            System.out.println("______");
             for (Knight knight : fort.getKnights()) {
                 knight.print();
             }
@@ -259,6 +313,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
 
             System.out.println("Blacksmiths: ");
+            System.out.println("______");
             for (Blacksmith blacksmith : forge.getBlacksmiths()) {
                 blacksmith.print();
             }
@@ -273,6 +328,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             System.out.println("School Teaching Level -"+blacksmithSchool.getSchoolLevel());
 
             System.out.println("Blacksmiths: ");
+            System.out.println("______");
             for (Blacksmith blacksmith : blacksmithSchool.getBlacksmiths()) {
                 blacksmith.print();
             }
