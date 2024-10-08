@@ -86,7 +86,6 @@ public class Kingdom extends Territory implements ReadIntInput {
 
         System.out.println("**********");
         System.out.println("**********");
-        System.out.println("**********");
         System.out.print("\nForts & Forge inhabitants of " + this.name + "\n");
 
         System.out.print("\nAll the forts\n");
@@ -123,7 +122,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             try {
                 age = Integer.parseInt(scanner.nextLine());
                 if (age < 12 || age > 100) {
-                    System.out.println("Age must be between 12 and 100. default is 20.");
+                    System.out.println("Age must be between 12-100 and defaults to 20.");
                     age = 20;
                 }
             } catch (NumberFormatException e) {
@@ -172,7 +171,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             try {
                 age = Integer.parseInt(scanner.nextLine());
                 if (age < 12 || age > 100) {
-                    System.out.println("Age must be between 12 and 100. default is 20.");
+                    System.out.println("Age must be between 12-100 and defaults to 20.");
                     age = 20;
                 }
             } catch (NumberFormatException e) {
