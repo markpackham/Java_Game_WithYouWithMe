@@ -1,5 +1,6 @@
 package Territory;
 
+import Buildings.Building;
 import Buildings.Kingdoms.BlacksmithSchool;
 import Buildings.Kingdoms.Forge;
 import Buildings.Kingdoms.Fort;
@@ -96,6 +97,7 @@ public class Kingdom extends Territory implements ReadIntInput {
         System.out.println("*****");
     }
 
+    // Add knights to forts
     private void populateTerritoryForts(int iterations) {
 
         // Force entry of a first name & surname for knight
@@ -145,6 +147,7 @@ public class Kingdom extends Territory implements ReadIntInput {
     }
 
 
+    // Add blacksmiths to forges & blacksmith schools
     private void populateTerritorySmiths(int iterations) {
 
         // Force entry of a first name & surname for blacksmith
@@ -258,7 +261,7 @@ public class Kingdom extends Territory implements ReadIntInput {
     }
 
 
-    // Read inputs for forge, blacksmith school & fort
+    // Read inputs for forge, blacksmith school & fort, override interface
     @Override
     public int readIntInput(String prompt, int defaultValue) {
         System.out.print(prompt);
@@ -271,21 +274,6 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
         }
         return defaultValue;
-    }
-
-
-    // Print ALL Villagers
-    public void printVillagers() {
-        for (Villager v : this.villagers) {
-            // Print Knight
-            if (v.getClass() == Knight.class) {
-                ((Knight) v).print();
-            }
-
-            if (v.getClass() == Blacksmith.class) {
-                ((Blacksmith) v).print();
-            }
-        }
     }
 
     public void printForts() {
@@ -320,7 +308,6 @@ public class Kingdom extends Territory implements ReadIntInput {
         for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
             System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors()
             );
-
             System.out.println("School Teaching Level -"+blacksmithSchool.getSchoolLevel());
 
             System.out.println("Blacksmiths: ");
