@@ -236,8 +236,8 @@ public class Kingdom extends Territory implements ReadIntInput {
         }
 
         int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
-        int windows = readIntInput("Enter number of windows forge has (default is 10): ", 4);
-        int doors = readIntInput("Enter number of doors forge has (default is 2): ", 1);
+        int windows = readIntInput("Enter number of windows forge has (default is 4): ", 4);
+        int doors = readIntInput("Enter number of doors forge has (default is 1): ", 1);
 
         Forge newForge = new Forge(forgeName, buildingYearBuilt, windows, doors);
         forges.add(newForge);
@@ -253,8 +253,8 @@ public class Kingdom extends Territory implements ReadIntInput {
         }
 
         int buildingYearBuilt = readIntInput("Enter year school built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
-        int windows = readIntInput("Enter number of windows school has (default is 10): ", 4);
-        int doors = readIntInput("Enter number of doors school has (default is 2): ", 1);
+        int windows = readIntInput("Enter number of windows school has (default is 8): ", 8);
+        int doors = readIntInput("Enter number of doors school has (default is 2): ", 2);
 
         BlacksmithSchool newBlacksmithSchool = new BlacksmithSchool(blacksmithSchoolName, buildingYearBuilt, windows, doors);
         blacksmithSchools.add(newBlacksmithSchool);
