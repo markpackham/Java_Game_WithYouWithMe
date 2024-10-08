@@ -26,8 +26,7 @@ public class Blacksmith extends Villager implements VillagerPrinter {
 
     @Override
     public void print() {
-        System.out.println("Name: " + this.FirstName + " " + this.LastName);
-        System.out.println("Age: " + this.Age);
+        System.out.println("Name: " + this.FirstName + " " + this.LastName + " Age: " + this.Age);
         System.out.println("Skill Level: " + getSkillLevel());
     }
 }

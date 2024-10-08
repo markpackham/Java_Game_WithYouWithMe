@@ -62,8 +62,7 @@ public class Knight extends Villager implements VillagerPrinter {
     // Print out knight info
     @Override
     public void print() {
-        System.out.println("Name: " + this.FirstName + " " + this.LastName);
-        System.out.println("Age: " + this.Age);
+        System.out.println("Name: " + this.FirstName + " " + this.LastName + " Age: " + this.Age);
         System.out.println("Strength: " + getStrength());
         System.out.println("Weapon " + getWeapon());
     }
