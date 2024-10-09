@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Buildings"},{"l":"Territory"},{"l":"Villagers"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Buildings"},{"l":"Buildings.Farms"},{"l":"Buildings.Kingdoms"},{"l":"Territory"},{"l":"Villagers"},{"l":"Villagers.Equipment"}];updateSearchResults();
