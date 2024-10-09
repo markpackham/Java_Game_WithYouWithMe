@@ -5,6 +5,7 @@ import Buildings.Farms.FarmSilo;
 import Buildings.Farms.FarmStable;
 import Buildings.Kingdoms.Fort;
 import Villagers.Farmer;
+import Villagers.Knight;
 import Villagers.Villager;
 
 import java.util.ArrayList;
@@ -69,6 +70,8 @@ public class Farmland extends Territory implements ReadIntInput{
         System.out.println("**********");
         System.out.print("\nBarns, Silos & Stable inhabitants of " + this.name + "\n");
 
+        System.out.print("\nAll the barns\n");
+        printFarmBarns();
     }
 
     // Create a farmer then put them with a barn, silo & stable
@@ -192,6 +195,18 @@ public class Farmland extends Territory implements ReadIntInput{
             }
         }
         return defaultValue;
+    }
+
+    public void printFarmBarns() {
+        for (FarmBarn barn : farmBarns) {
+            System.out.println("\nFarm Barns: " + barn.getBuildingName() + ", year built: " + barn.getBuildingYearBuilt() + ", windows: " + barn.getWindows() + ", doors: " + barn.getDoors());
+            System.out.println(("The animals held in this barn are "+barn.getAnimals()));
+            System.out.println("Farmers");
+            System.out.println("______");
+            for (Farmer farmer : barn.getFarmers()) {
+                farmer.print();
+            }
+        }
     }
 
 }
