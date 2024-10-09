@@ -89,7 +89,7 @@ public class Kingdom extends Territory implements ReadIntInput {
 
         System.out.println("**********");
         System.out.println("**********");
-        System.out.print("\nForts & Forge inhabitants of " + this.name + "\n");
+        System.out.print("\nForts, Forges & Blacksmith School inhabitants of " + this.name + "\n");
 
         System.out.print("\nAll the forts\n");
         printForts();
