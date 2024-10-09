@@ -18,7 +18,7 @@ public class Farmer extends Villager implements VillagerPrinter {
     private void selectTools() {
         int i = 1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nSelect your tool, this is case sensative!: ");
+        System.out.println("\nSelect your tool, this is case sensitive!: ");
         // Iterate through Enum of tools printing each
         for (FarmTools ft : FarmTools.values()) {
             System.out.println(ft);
