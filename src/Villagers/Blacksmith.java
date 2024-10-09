@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Blacksmith extends Villager implements VillagerPrinter {
 
-    private SmithTools smithTools;
     // Skill levels never change so can be stored in an array
     private final String[] skillLevels = {"apprentice", "journeyman", "master"};
     private String skillLevel;
