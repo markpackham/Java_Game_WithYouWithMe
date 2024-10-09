@@ -12,29 +12,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Create an empty list of villagers
+        // Create an empty list of villagers to populate the kingdom & farmland territories
         List<Villager> villagers = new ArrayList<>();
 
         System.out.println("Welcome to the Kingdom and Farmland creator!");
 
-        // Init Scanner
+        // Init Scanner for user input
         Scanner scanner = new Scanner(System.in);
 
         // Kingdom creation
         System.out.print("Do you want to create a kingdom, please enter 'y' for 'yes' or anything else for 'no'? ");
-        // If user has capslock on change word to lower case
-        String answer = scanner.nextLine().toLowerCase();
+        String answer = scanner.nextLine();
 
-        if(answer.equals("y") || answer.equals("yes")){
+        // Ignore case if user has capslock on by mistake
+        if(answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")){
             Kingdom kingdom = new Kingdom("", villagers);
             System.out.println("Report on The Kingdom of "+kingdom.getName() + " complete!\n");
         }
 
         // Farmland creation
         System.out.print("Do you want to create some farmland, please enter 'y' for 'yes' or anything else for 'no'? ");
-        String answerFarmland = scanner.nextLine().toLowerCase();
+        String answerFarmland = scanner.nextLine();
 
-        if(answerFarmland.equals("y") || answerFarmland.equals("yes")){
+        if(answerFarmland.equalsIgnoreCase("y") || answerFarmland.equalsIgnoreCase("yes")){
             Farmland farmland = new Farmland("", villagers);
             System.out.println("Report on the farmland of "+farmland.getName() + " complete!\n");
         }

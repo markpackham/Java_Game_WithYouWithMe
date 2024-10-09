@@ -9,17 +9,17 @@ It includes the following:
 
 The goal of this game is to create a kingdom and farmland. You then populate them with various buildings, knight, farmers & blacksmiths.
 
-The main purpose is to demo object-oriented programming in Java and use common Java types, methods & control flow statements.
+The main purpose is to demo in the code object-oriented programming in Java and use common Java types, methods & control flow statements.
 
 #### Javadoc
 To find the Javadoc as well as documents related to the project creation please go to the folder - "Notes & Ideas".
 
 ## Requirements
 
-Code was written in Java using IntelliJ IDEA
-openjdk 21.0.4 2024-07-16 LTS
-OpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)
-OpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode, sharing)
+* Code was written in Java using IntelliJ IDEA 2024.2.3 (Community Edition)
+* openjdk 21.0.4 2024-07-16 LTS
+* OpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)
+* OpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode, sharing)
 
 ### Optional Requirements ###
 
