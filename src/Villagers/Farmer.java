@@ -10,6 +10,9 @@ public class Farmer extends Villager implements VillagerPrinter {
 
     public Farmer(String firstName, String lastName, int age) {
         super(firstName, lastName, age);
+        selectTools();
+        System.out.println("\nFarmer created\n");
+        print();
     }
 
     private void selectTools() {
@@ -32,12 +35,13 @@ public class Farmer extends Villager implements VillagerPrinter {
             }
         }
 
-        // Checks to ensure a farm tool was chosen or calls for a seleciton again
+        // Checks to ensure a farm tool was chosen or calls for a selection again
         if (this.farmTool == null) {
             System.out.println("Incorrect choice. Please select a tool from the list e.g. Fork\n\n");
             selectTools();
         }
     }
+
     public FarmTools getFarmTool() {
         return farmTool;
     }
