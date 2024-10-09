@@ -41,7 +41,10 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 3) Create a set number of knights (0-10).
 
-4) Assign the knights to forts that you created.
+4) Assign the knights to forts that you created, when it comes to a knight you must select a weapon.
+* All buildings have a name, numbers of windows, doors alongside 1 unique attribute.
+* Often the unique attribute is selected from a list of attributes at random.
+* Eg a random number is chosen or the current day of the week or number if the month impacts the result.
 
 5) Create a set of blacksmiths (0-10).
 
@@ -51,7 +54,10 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 8) Create a territory of type farmland.
 
-10000) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
+9) Create a set of farmers (0-10).
+10)  Assign the farmers to stables, silos & 
+
+9) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
 
 
 ## Unfinished Aspects / Future Scope ##
