@@ -116,37 +116,45 @@ public class Farmland extends Territory implements ReadIntInput {
             Farmer farmer = new Farmer(fName, sName, age);
             this.villagers.add(farmer);
 
-            System.out.print("\nEnter barn to station farmer at: ");
+            // Allow users to avoid having to add a farmer to a barn if you only want them for a silo or a stable
+            System.out.print("\nEnter barn to station farmer at or type 's' to skip: ");
             String barnName = scanner.nextLine();
 
-            // Use the farmland's name and "Barn" if user fails to enter anything
-            if (barnName.isEmpty()) {
-                barnName = "Barn " + this.name;
+            if (!barnName.equalsIgnoreCase("s")) {
+                // Use the farmland's name and "Barn" if user fails to enter anything
+                if (barnName.isEmpty()) {
+                    barnName = "Barn " + this.name;
+                }
+
+                // Put farmer in a barn, if the barn name already exists we don't need to create a new barn
+                FarmBarn farmBarn = findOrCreateFarmBarn(barnName);
+                farmBarn.addFarmer(farmer);
             }
 
-            // Put farmer in a barn, if the barn name already exists we don't need to create a new barn
-            FarmBarn farmBarn = findOrCreateFarmBarn(barnName);
-            farmBarn.addFarmer(farmer);
-
-            System.out.print("\nEnter silo to station farmer at: ");
+            System.out.print("\nEnter silo to station farmer at or type 's' to skip: ");
             String siloName = scanner.nextLine();
 
-            if (siloName.isEmpty()) {
-                siloName = "Silo " + this.name;
-            }
+            if (!siloName.equalsIgnoreCase("s")) {
+                if (siloName.isEmpty()) {
+                    siloName = "Silo " + this.name;
+                }
 
-            FarmSilo farmSilo = findOrCreateFarmSilo(siloName);
-            farmSilo.addFarmer(farmer);
+                FarmSilo farmSilo = findOrCreateFarmSilo(siloName);
+                farmSilo.addFarmer(farmer);
+            }
 
             System.out.print("\nEnter stable to station farmer at: ");
             String stableName = scanner.nextLine();
 
-            if (stableName.isEmpty()) {
-                stableName = "Stable " + this.name;
+            if (!stableName.equalsIgnoreCase("s")) {
+                if (stableName.isEmpty()) {
+                    stableName = "Stable " + this.name;
+                }
+
+                FarmStable farmStable = findOrCreateFarmStable(stableName);
+                farmStable.addFarmer(farmer);
             }
 
-            FarmStable farmStable = findOrCreateFarmStable(stableName);
-            farmStable.addFarmer(farmer);
         }
 
     }
