@@ -5,11 +5,11 @@ import Buildings.Building;
 import java.time.LocalDate;
 
 // Belongs to Farmland
-public class FarmCattleBarn extends Building {
+public class FarmBarn extends Building {
 
     String animals;
 
-    public FarmCattleBarn(String buildingName, int buildingYearBuilt, int windows, int doors) {
+    public FarmBarn(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
         animals = this.getAnimals();
     }

@@ -1,6 +1,6 @@
 package Territory;
 
-import Buildings.Farms.FarmCattleBarn;
+import Buildings.Farms.FarmBarn;
 import Buildings.Farms.FarmSilo;
 import Buildings.Farms.FarmStable;
 import Villagers.Villager;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Farmland extends Territory {
 
     private final Scanner scanner;
-    private List<FarmCattleBarn> farmCattleBarns;
+    private List<FarmBarn> farmBarns;
     private List<FarmSilo> farmSilos;
     private List<FarmStable> farmStables;
 
@@ -21,7 +21,7 @@ public class Farmland extends Territory {
         super(name, villagers);
 
         this.scanner = new Scanner(System.in);
-        this.farmCattleBarns = new ArrayList<>();
+        this.farmBarns = new ArrayList<>();
         this.farmSilos = new ArrayList<>();
         this.farmStables = new ArrayList<>();
 
