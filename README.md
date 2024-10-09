@@ -56,14 +56,17 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 8) Create a territory of type farmland.
 
 9) Create a set of farmers (0-10).
-10)  Assign the farmers to stables, silos & 
+
+10) Assign the farmers to barns, silos & stables (you can skip these).
+
+11) A report of the farmland is generated. 
 
 * All buildings have a name, a year built, numbers of windows, doors alongside 1 unique attribute.
 * Often the unique attribute is selected from a list of attributes at random.
 * Eg a random number is chosen or the current day of the week or number if the month impacts the result.
 * So if you have a farm stable created on a Monday it will have 5 horses while if you made it on Sunday it will have 11.
 
-9) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
+12) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
 
 
 ## Unfinished Aspects / Future Scope ##

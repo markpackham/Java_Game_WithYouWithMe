@@ -3,6 +3,8 @@ package Buildings.Farms;
 import Buildings.Building;
 import Villagers.Farmer;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,7 +24,11 @@ public class FarmSilo extends Building implements AddFarmer {
 
     private void generateMaxStorageCapacity() {
         Random rand = new Random();
-        maxStorageCapacity = rand.nextDouble(100.55, 120000.55);
+        double randomValue = rand.nextDouble(100.55, 120000.55);
+
+        // Convert double to 2 decimal places and round upwards via BigDecimal object
+        BigDecimal bigDec = new BigDecimal(randomValue).setScale(2, RoundingMode.CEILING);
+        maxStorageCapacity = bigDec.doubleValue();
     }
 
     public double getMaxStorageCapacity() {

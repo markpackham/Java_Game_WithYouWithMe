@@ -143,7 +143,7 @@ public class Farmland extends Territory implements ReadIntInput {
                 farmSilo.addFarmer(farmer);
             }
 
-            System.out.print("\nEnter stable to station farmer at: ");
+            System.out.print("\nEnter stable to station farmer at or type 's' to skip: ");
             String stableName = scanner.nextLine();
 
             if (!stableName.equalsIgnoreCase("s")) {
@@ -244,7 +244,7 @@ public class Farmland extends Territory implements ReadIntInput {
     public void printFarmSilos() {
         for (FarmSilo silo : farmSilos) {
             System.out.println("\nFarm Silo: " + silo.getBuildingName() + ", year built: " + silo.getBuildingYearBuilt() + ", windows: " + silo.getWindows() + ", doors: " + silo.getDoors());
-            System.out.println(("The max storage capacity is " + silo.getMaxStorageCapacity() + "tonnes"));
+            System.out.println(("The max storage capacity is " + silo.getMaxStorageCapacity() + " tonnes"));
             System.out.println("Farmers");
             System.out.println("______");
             for (Farmer farmer : silo.getFarmers()) {
