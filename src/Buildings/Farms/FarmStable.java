@@ -1,18 +1,24 @@
 package Buildings.Farms;
 
 import Buildings.Building;
+import Villagers.Farmer;
+import Villagers.Knight;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 // Belongs to Farmland
-public class FarmStable extends Building {
+public class FarmStable extends Building implements AddFarmer{
 
     private int horseNumbers;
+    private List<Farmer> farmers;
 
     public FarmStable(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
         horseNumbers = this.getHorseNumbers();
+        this.farmers = new ArrayList<>();
     }
 
     // Horse numbers in stable changes based on what day of the week the player plays
@@ -31,5 +37,15 @@ public class FarmStable extends Building {
         };
 
         return horseNumbers;
+    }
+
+    @Override
+    public void addFarmer(Farmer farmer) {
+        this.farmers.add(farmer);
+    }
+
+    @Override
+    public List<Farmer> getFarmers() {
+        return farmers;
     }
 }

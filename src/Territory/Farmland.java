@@ -3,6 +3,7 @@ package Territory;
 import Buildings.Farms.FarmBarn;
 import Buildings.Farms.FarmSilo;
 import Buildings.Farms.FarmStable;
+import Buildings.Kingdoms.Fort;
 import Villagers.Farmer;
 import Villagers.Villager;
 
@@ -105,10 +106,27 @@ public class Farmland extends Territory {
             // Create an instance of a farmer
             Farmer farmer = new Farmer(fName, sName, age);
             this.villagers.add(farmer);
+
+            System.out.print("\nEnter barn to station farmer at: ");
+            String barnName = scanner.nextLine();
+
+            // Use the farmland's name and "Barn" if user fails to enter anything
+            if (barnName.isEmpty()) {
+                barnName = "Barn " + this.name;
+            }
+
+            // Put farmer in a barn, if the barn name already exists we don't need to create a new barn
+            FarmBarn farmBarn = findOrCreateFarmBarn(barnName);
+            farmBarn.addFarmer(farmer);
         }
 
 
 
+    }
+
+    private FarmBarn findOrCreateFarmBarn(String barnName) {
+
+        return null;
     }
 
 }
