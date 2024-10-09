@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+// Belongs to a Kingdom and holds knights
 public class Fort extends Building {
 
     private final String fortID;

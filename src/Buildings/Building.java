@@ -1,5 +1,7 @@
 package Buildings;
 
+// Every single type of building needs a name, a year of creation, windows & doors doesn't matter if
+// it is a fort, forge or a barn
 public abstract class Building {
     String buildingName;
     int buildingYearBuilt;

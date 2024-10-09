@@ -1,9 +1,9 @@
 package Villagers;
 
 // Ultra generic class to base other human classes off
-// the subclasses will be used to give villagers professions
 public abstract class Villager {
 
+    // Attributes protected since we need child classes of knights, blacksmiths and farmers to access them
     protected String FirstName;
     protected String LastName;
     protected int Age;

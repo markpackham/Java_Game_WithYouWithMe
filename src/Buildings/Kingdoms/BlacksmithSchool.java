@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// Belong to a Kingdom
+// Belongs to a Kingdom and holds blacksmiths
 public class BlacksmithSchool extends Building {
 
-    private final String[] schoolLevels = {"primary", "secondary", "graduate", "postgrad"};
+    private final String[] schoolLevels = {"primary", "secondary", "graduate", "postgrad", "inventor"};
     private final String schoolLevel;
     private List<Blacksmith> blacksmiths;
 
@@ -18,7 +18,7 @@ public class BlacksmithSchool extends Building {
         super(buildingName, buildingYearBuilt, windows, doors);
 
         Random rand = new Random();
-        // Select school level at random
+        // Select level of schooling a blacksmith attends at random
         this.schoolLevel = schoolLevels[rand.nextInt(0, schoolLevels.length)];
         this.blacksmiths = new ArrayList<>();
     }

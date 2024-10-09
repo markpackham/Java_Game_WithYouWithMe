@@ -18,14 +18,14 @@ public class Farmer extends Villager implements VillagerPrinter {
     private void selectTools() {
         int i = 1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nSelect your tool: ");
+        System.out.println("\nSelect your tool, this is case sensative!: ");
         // Iterate through Enum of tools printing each
         for (FarmTools ft : FarmTools.values()) {
             System.out.println(ft);
             i++;
         }
 
-        System.out.println("Enter the tool your farmer uses.");
+        System.out.print("Enter the tool your farmer uses: ");
         String farmT = scanner.nextLine();
         // Compares the input to all the possible Enum values
         for (FarmTools ft : FarmTools.values()) {

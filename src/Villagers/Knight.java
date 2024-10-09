@@ -28,14 +28,14 @@ public class Knight extends Villager implements VillagerPrinter {
     private void selectWeapon() {
         int i = 1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nSelect your weapon: ");
+        System.out.println("\nSelect your weapon, this is case sensative!: ");
         // Iterate through Enum of weapons printing each
         for (Weapons w : Weapons.values()) {
             System.out.println(w);
             i++;
         }
 
-        System.out.println("Enter the weapon your knight uses.");
+        System.out.print("Enter the weapon your knight uses: ");
         String weap = scanner.nextLine();
         // Compares the input to all the possible Enum values
         for (Weapons w : Weapons.values()) {

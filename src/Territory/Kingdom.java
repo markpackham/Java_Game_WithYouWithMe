@@ -12,8 +12,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
-// Villagers and buildings are held in a kingdom
-// They can have forts with knights and forges with blacksmiths but NOT farmers with silos
+// Knights & blacksmiths are held in a kingdom
+// They can have forts with knights, blacksmith schools & forges with blacksmiths but NOT farmers with silos, stables or barns
 public class Kingdom extends Territory implements ReadIntInput {
 
     private final Scanner scanner;
@@ -21,31 +21,35 @@ public class Kingdom extends Territory implements ReadIntInput {
     private List<Forge> forges;
     private List<BlacksmithSchool> blacksmithSchools;
 
-
+    // Constructor
     public Kingdom(String name, List<Villager> villagers) {
         super(name, villagers);
         this.scanner = new Scanner(System.in);
+        // Use ArrayLists to hold forts, forges & schools since we can't predict how many the user will create
         this.forts = new ArrayList<>();
         this.forges = new ArrayList<>();
         this.blacksmithSchools = new ArrayList<>();
         initTerritory();
     }
 
+    // Populate kingdom with villagers & buildings
     private void initTerritory() {
 
         // Keep user in loop till they give the territory a name
         while (true) {
             System.out.print("\nName of kingdom: ");
-            // use .trim() to remove white space should the user hit space then return
+            // Use .trim() to remove white space should the user hit space then return
             this.name = scanner.nextLine().trim();
             if (!this.name.isEmpty()) {
+                // Only escape when user actually enters something
                 break;
             }
             System.out.println("Kingdom name cannot be blank. Please enter a value.");
         }
 
 
-        // Adding knights (can only be between 0-10)
+        // Adding knights (can only be between 0-10) - keep numbers low or you will be typing forever
+        // It is possible to have 0 knights if you instead just want to make blacksmiths
         int numberOfKnights = -1;
         while (numberOfKnights < 0 || numberOfKnights > 10) {
             System.out.print("How many knights live in your territory (0-10)?: ");
@@ -59,6 +63,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
         }
 
+        // Don't bother creating / populating your forts if no knights exist
         if (numberOfKnights > 0) {
             populateTerritoryForts(numberOfKnights);
         }
@@ -77,6 +82,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
         }
 
+        // Don't bother populating forges or schools if no blacksmiths exist
         if (numberOfSmiths > 0) {
             populateTerritorySmiths(numberOfSmiths);
         }
@@ -96,18 +102,19 @@ public class Kingdom extends Territory implements ReadIntInput {
         System.out.println("*****");
     }
 
-    // Add knights to forts
+    // Create a knight then create a fort for it to be added to
     private void populateTerritoryForts(int iterations) {
 
-        // Force entry of a first name & surname for knight
+        // Force entry of a first name
         for (int i = 0; i < iterations; i++) {
             String fName;
+            // Demo use of a do while loop
             do {
                 System.out.print("\nEnter first name: ");
                 fName = scanner.nextLine();
             } while (fName.trim().isEmpty());
 
-            // Use surname instead of last name, more ye-old
+            // Use surname (the family name) instead of last name, more ye-old
             String sName;
             do {
                 System.out.print("Enter surname: ");
@@ -139,17 +146,17 @@ public class Kingdom extends Territory implements ReadIntInput {
                 fortName = "Fort " + this.name;
             }
 
-            // Put Knight in a fort
+            // Put knight in a fort, if the fort name already exists we don't need to create a new fort
             Fort fort = findOrCreateFort(fortName);
             fort.addKnight(knight);
         }
     }
 
 
-    // Add blacksmiths to forges & blacksmith schools
+    // Create blacksmiths then create forges and schools for them to be added to
     private void populateTerritorySmiths(int iterations) {
 
-        // Force entry of a first name & surname for blacksmith
+        // Force entry of a first name
         for (int i = 0; i < iterations; i++) {
             String fName;
             do {
@@ -189,7 +196,7 @@ public class Kingdom extends Territory implements ReadIntInput {
                 forgeName = "Forge " + this.name;
             }
 
-            // Put a blacksmith with a forge
+            // Put a blacksmith with a forge, if the name already exists you don't need to create a new forge
             Forge forge = findOrCreateForge(forgeName);
             forge.addSmith(blacksmith);
 
@@ -275,6 +282,7 @@ public class Kingdom extends Territory implements ReadIntInput {
         return defaultValue;
     }
 
+    // Output details of forts
     public void printForts() {
         for (Fort fort : forts) {
             System.out.println("\nFort: " + fort.getBuildingName() + ", ID: " + fort.getFortID() + ", year built: " + fort.getBuildingYearBuilt() + ", windows: " + fort.getWindows() + ", doors: " + fort.getDoors());

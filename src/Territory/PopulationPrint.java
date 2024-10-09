@@ -6,7 +6,9 @@ import Villagers.Villager;
 
 import java.util.List;
 
-// Might use later if I want every single village printed
+/* TODO */
+// Might use later if I want every single villager printed but for now we print buildings and villagers
+// associated with them
 public class PopulationPrint {
 
     List<Villager> villagers;

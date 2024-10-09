@@ -10,6 +10,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/* TODO */
+// Unit testing functionality to be implemented in later versions of the project
 class FortTest {
 
     private Fort fort;

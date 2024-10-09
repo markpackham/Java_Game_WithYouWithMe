@@ -4,6 +4,7 @@ import Villagers.Villager;
 
 import java.util.List;
 
+// Both kingdoms and farmland are based off a territory
 public class Territory {
 
     // Use protected so child classes can access

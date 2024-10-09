@@ -27,7 +27,7 @@ public class Main {
         // Ignore case if user has capslock on by mistake
         if(answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")){
             Kingdom kingdom = new Kingdom("", villagers);
-            System.out.println("Report on The Kingdom of "+kingdom.getName() + " complete!\n");
+            System.out.println("\nReport on The Kingdom of "+kingdom.getName() + " complete!\n\n");
         }
 
         // Farmland creation
@@ -36,7 +36,7 @@ public class Main {
 
         if(answerFarmland.equalsIgnoreCase("y") || answerFarmland.equalsIgnoreCase("yes")){
             Farmland farmland = new Farmland("", villagers);
-            System.out.println("Report on the farmland of "+farmland.getName() + " complete!\n");
+            System.out.println("\nReport on the farmland of "+farmland.getName() + " complete!\n\n");
         }
 
         System.out.println("\nReport Finished!");
