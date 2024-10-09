@@ -14,7 +14,7 @@ public class FarmSilo extends Building implements AddFarmer {
     private double maxStorageCapacity;
     private List<Farmer> farmers;
 
-    public FarmSilo(String buildingName, int buildingYearBuilt, int windows, int doors, double maxStorageCapacity) {
+    public FarmSilo(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
         generateMaxStorageCapacity();
         this.farmers = new ArrayList<>();

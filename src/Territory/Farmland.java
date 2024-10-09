@@ -138,12 +138,46 @@ public class Farmland extends Territory implements ReadIntInput{
         int windows = readIntInput("Enter number of windows barn has (default is 2): ", 2);
         int doors = readIntInput("Enter number of doors barn has (default is 1): ", 1);
 
+        // The type of animal the barn stores is selected based on the day of the month it is created
         FarmBarn newFarmBarn = new FarmBarn(barnName, buildingYearBuilt, windows, doors);
         farmBarns.add(newFarmBarn);
         return newFarmBarn;
     }
 
 
+    // Build a silo for a farmer to store crops in
+    private FarmSilo findOrCreateFarmSilo(String siloName) {
+        for (FarmSilo silo : farmSilos) {
+            if (silo.getBuildingName().equals(siloName)) {
+                return silo;
+            }
+        }
+
+        int buildingYearBuilt = readIntInput("Enter year silo built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows silo has (default is 1): ", 1);
+        int doors = readIntInput("Enter number of doors silo has (default is 1): ", 1);
+
+        FarmSilo newFarmSilo = new FarmSilo(siloName, buildingYearBuilt, windows, doors);
+        farmSilos.add(newFarmSilo);
+        return newFarmSilo;
+    }
+
+    // Build a horse stable to assign the farmer to
+    private FarmStable findOrCreateFarmStable(String stableName) {
+        for (FarmStable stable : farmStables) {
+            if (stable.getBuildingName().equals(stableName)) {
+                return stable;
+            }
+        }
+
+        int buildingYearBuilt = readIntInput("Enter year stable built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows stable has (default is 1): ", 2);
+        int doors = readIntInput("Enter number of doors stable has (default is 1): ", 2);
+
+        FarmStable newFarmStable = new FarmStable(stableName, buildingYearBuilt, windows, doors);
+        farmStables.add(newFarmStable);
+        return newFarmStable;
+    }
 
     // Read inputs for barns, silos & stables, override interface
     @Override
