@@ -1,4 +1,4 @@
-# Java_Game_WithYouWithMe
+# Java_Game_WithYouWithMe - Kingdom & Farmland creator
 
 It includes the following:
 
@@ -7,7 +7,11 @@ It includes the following:
 
 ## Game Purpose
 
-####
+The goal of this game is to create a kingdom and farmland. You then populate them with various buildings, knight, farmers & blacksmiths.
+
+The main purpose is to demo object-oriented programming in Java and use common Java types, methods & control flow statements.
+
+#### Javadoc
 To find the Javadoc as well as documents related to the project creation please go to the folder - "Notes & Ideas".
 
 ## Requirements
@@ -42,9 +46,6 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 3) Create a set number of knights (0-10).
 
 4) Assign the knights to forts that you created, when it comes to a knight you must select a weapon.
-* All buildings have a name, numbers of windows, doors alongside 1 unique attribute.
-* Often the unique attribute is selected from a list of attributes at random.
-* Eg a random number is chosen or the current day of the week or number if the month impacts the result.
 
 5) Create a set of blacksmiths (0-10).
 
@@ -56,6 +57,11 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 9) Create a set of farmers (0-10).
 10)  Assign the farmers to stables, silos & 
+
+* All buildings have a name, a year built, numbers of windows, doors alongside 1 unique attribute.
+* Often the unique attribute is selected from a list of attributes at random.
+* Eg a random number is chosen or the current day of the week or number if the month impacts the result.
+* So if you have a farm stable created on a Monday it will have 5 horses while if you made it on Sunday it will have 11.
 
 9) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
 
