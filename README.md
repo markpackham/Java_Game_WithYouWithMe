@@ -1,10 +1,5 @@
 # Java_Game_WithYouWithMe - Kingdom & Farmland creator
 
-It includes the following:
-
-- Todo
-
-
 ## Game Purpose
 
 The goal of this game is to create a kingdom and farmland. You then populate them with various buildings, knight, farmers & blacksmiths.
@@ -72,3 +67,6 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 ## Unfinished Aspects / Future Scope ##
 
 1) Need to implement Unit tests.
+2) A greater focus on gameplay and resource management elements:
+- Inflict random famines or enemy attacks that need be mitigated by farmer & knight numbers.
+- Allow for population growth as long as there are enough farmers, blacksmiths & buildings to support it.
