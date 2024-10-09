@@ -197,13 +197,38 @@ public class Farmland extends Territory implements ReadIntInput{
         return defaultValue;
     }
 
+    // Output details of the barns
     public void printFarmBarns() {
         for (FarmBarn barn : farmBarns) {
-            System.out.println("\nFarm Barns: " + barn.getBuildingName() + ", year built: " + barn.getBuildingYearBuilt() + ", windows: " + barn.getWindows() + ", doors: " + barn.getDoors());
+            System.out.println("\nFarm Barn: " + barn.getBuildingName() + ", year built: " + barn.getBuildingYearBuilt() + ", windows: " + barn.getWindows() + ", doors: " + barn.getDoors());
             System.out.println(("The animals held in this barn are "+barn.getAnimals()));
             System.out.println("Farmers");
             System.out.println("______");
             for (Farmer farmer : barn.getFarmers()) {
+                farmer.print();
+            }
+        }
+    }
+
+    public void printFarmSilos() {
+        for (FarmSilo silo : farmSilos) {
+            System.out.println("\nFarm Silo: " + silo.getBuildingName() + ", year built: " + silo.getBuildingYearBuilt() + ", windows: " + silo.getWindows() + ", doors: " + silo.getDoors());
+            System.out.println(("The max storage capacity is "+silo.getMaxStorageCapacity()+"tonnes"));
+            System.out.println("Farmers");
+            System.out.println("______");
+            for (Farmer farmer : silo.getFarmers()) {
+                farmer.print();
+            }
+        }
+    }
+
+    public void printFarmStables() {
+        for (FarmStable stable : farmStables) {
+            System.out.println("\nFarm Barns: " + stable.getBuildingName() + ", year built: " + stable.getBuildingYearBuilt() + ", windows: " + stable.getWindows() + ", doors: " + stable.getDoors());
+            System.out.println(("Numbers of horses in the stable "+stable.getHorseNumbers()));
+            System.out.println("Farmers");
+            System.out.println("______");
+            for (Farmer farmer : stable.getFarmers()) {
                 farmer.print();
             }
         }
