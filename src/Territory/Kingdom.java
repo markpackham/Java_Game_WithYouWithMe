@@ -315,7 +315,7 @@ public class Kingdom extends Territory implements ReadIntInput {
     public void printBlacksmithSchools() {
         for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
             System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors());
-            System.out.println("School Teaching Level -" + blacksmithSchool.getSchoolLevel());
+            System.out.println("School Max Teaching Level - " + blacksmithSchool.getSchoolLevel());
 
             System.out.println("Blacksmiths: ");
             System.out.println("______");
