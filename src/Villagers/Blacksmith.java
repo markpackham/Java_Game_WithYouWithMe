@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Blacksmith extends Villager implements VillagerPrinter {
 
-    // Skill levels never change so can be stored in an array
-    private final String[] skillLevels = {"apprentice", "journeyman", "master"};
+    // SKILL_LEVELS never change so can be stored in an array & be a constant
+    private final String[] SKILL_LEVELS = {"apprentice", "journeyman", "master"};
     private String skillLevel;
 
     public Blacksmith(String firstName, String lastName, int age) {
@@ -13,7 +13,7 @@ public class Blacksmith extends Villager implements VillagerPrinter {
 
         Random rand = new Random();
         // Select skill level at random
-        skillLevel = skillLevels[rand.nextInt(0, skillLevels.length)];
+        skillLevel = SKILL_LEVELS[rand.nextInt(0, SKILL_LEVELS.length)];
 
         System.out.println("\nBlacksmith created\n");
         print();
