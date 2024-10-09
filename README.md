@@ -51,7 +51,7 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 8) Create a territory of type farmland.
 
-10000) Once this is done the structure of the territory listing the name of the territory, the buildings, and the villagers assigned to each building will be shown.
+10000) You can type 'exit', 'quit' or 'q' at the end of the process to exit the program.
 
 
 ## Unfinished Aspects / Future Scope ##
