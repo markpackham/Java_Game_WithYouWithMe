@@ -135,6 +135,7 @@ public class Kingdom extends Territory implements ReadIntInput {
                 age = 20;
             }
 
+            // Create an instance of a knight
             Knight knight = new Knight(fName, sName, age);
             this.villagers.add(knight);
 

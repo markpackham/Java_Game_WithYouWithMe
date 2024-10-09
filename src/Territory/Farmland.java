@@ -3,6 +3,7 @@ package Territory;
 import Buildings.Farms.FarmBarn;
 import Buildings.Farms.FarmSilo;
 import Buildings.Farms.FarmStable;
+import Villagers.Farmer;
 import Villagers.Villager;
 
 import java.util.ArrayList;
@@ -68,7 +69,45 @@ public class Farmland extends Territory {
 
     }
 
+    // Create a farmer then put them with a barn, silo & stable
     private void populateTerritoryFarmland(int iterations) {
+
+        // Force entry of a first name
+        for (int i = 0; i < iterations; i++) {
+            String fName;
+            // Demo use of a do while loop
+            do {
+                System.out.print("\nEnter first name: ");
+                fName = scanner.nextLine();
+            } while (fName.trim().isEmpty());
+
+            // Use surname (the family name) instead of last name, more ye-old
+            String sName;
+            do {
+                System.out.print("Enter surname: ");
+                sName = scanner.nextLine();
+            } while (sName.trim().isEmpty());
+
+            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            // If user makes a mistake or enters nothing force the age to be 20
+            int age;
+            try {
+                age = Integer.parseInt(scanner.nextLine());
+                if (age < 12 || age > 100) {
+                    System.out.println("Age must be between 12-100 and defaults to 20.");
+                    age = 20;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Setting default age to 20.");
+                age = 20;
+            }
+
+            // Create an instance of a farmer
+            Farmer farmer = new Farmer(fName, sName, age);
+            this.villagers.add(farmer);
+        }
+
+
 
     }
 
