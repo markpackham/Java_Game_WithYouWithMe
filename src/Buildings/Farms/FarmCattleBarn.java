@@ -11,6 +11,7 @@ public class FarmCattleBarn extends Building {
 
     public FarmCattleBarn(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
+        animals = this.getAnimals();
     }
 
     // The animals stored in the barn chosen based on the day of the month
