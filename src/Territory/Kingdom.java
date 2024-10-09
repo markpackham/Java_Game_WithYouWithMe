@@ -17,9 +17,9 @@ import java.util.Scanner;
 public class Kingdom extends Territory implements ReadIntInput {
 
     private final Scanner scanner;
-    private List<Fort> forts;
-    private List<Forge> forges;
-    private List<BlacksmithSchool> blacksmithSchools;
+    private final List<Fort> forts;
+    private final List<Forge> forges;
+    private final List<BlacksmithSchool> blacksmithSchools;
 
     // Constructor
     public Kingdom(String name, List<Villager> villagers) {
@@ -298,8 +298,7 @@ public class Kingdom extends Territory implements ReadIntInput {
 
     public void printForges() {
         for (Forge forge : forges) {
-            System.out.println("\nForge: " + forge.getBuildingName() + ", year built: " + forge.getBuildingYearBuilt() + ", windows: " + forge.getWindows() + ", doors: " + forge.getDoors()
-            );
+            System.out.println("\nForge: " + forge.getBuildingName() + ", year built: " + forge.getBuildingYearBuilt() + ", windows: " + forge.getWindows() + ", doors: " + forge.getDoors());
 
             if (forge.isHasLumberMill()) {
                 System.out.println("This forge has a lumber mill!");
@@ -315,8 +314,7 @@ public class Kingdom extends Territory implements ReadIntInput {
 
     public void printBlacksmithSchools() {
         for (BlacksmithSchool blacksmithSchool : blacksmithSchools) {
-            System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors()
-            );
+            System.out.println("\nBlacksmith School: " + blacksmithSchool.getBuildingName() + ", year built: " + blacksmithSchool.getBuildingYearBuilt() + ", windows: " + blacksmithSchool.getWindows() + ", doors: " + blacksmithSchool.getDoors());
             System.out.println("School Teaching Level -" + blacksmithSchool.getSchoolLevel());
 
             System.out.println("Blacksmiths: ");

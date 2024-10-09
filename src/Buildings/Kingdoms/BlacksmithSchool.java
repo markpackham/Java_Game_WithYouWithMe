@@ -12,7 +12,7 @@ public class BlacksmithSchool extends Building {
 
     private final String[] schoolLevels = {"primary", "secondary", "graduate", "postgrad", "inventor"};
     private final String schoolLevel;
-    private List<Blacksmith> blacksmiths;
+    private final List<Blacksmith> blacksmiths;
 
     public BlacksmithSchool(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);

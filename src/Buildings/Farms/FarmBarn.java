@@ -12,7 +12,7 @@ import java.util.List;
 public class FarmBarn extends Building implements AddFarmer {
 
     String animals;
-    private List<Farmer> farmers;
+    private final List<Farmer> farmers;
 
     public FarmBarn(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);

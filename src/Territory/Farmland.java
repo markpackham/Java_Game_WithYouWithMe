@@ -3,9 +3,7 @@ package Territory;
 import Buildings.Farms.FarmBarn;
 import Buildings.Farms.FarmSilo;
 import Buildings.Farms.FarmStable;
-import Buildings.Kingdoms.Fort;
 import Villagers.Farmer;
-import Villagers.Knight;
 import Villagers.Villager;
 
 import java.util.ArrayList;
@@ -14,12 +12,12 @@ import java.util.List;
 import java.util.Scanner;
 
 // Farmland can host silos with farmers but not have forts with knights and forges with blacksmiths
-public class Farmland extends Territory implements ReadIntInput{
+public class Farmland extends Territory implements ReadIntInput {
 
     private final Scanner scanner;
-    private List<FarmBarn> farmBarns;
-    private List<FarmSilo> farmSilos;
-    private List<FarmStable> farmStables;
+    private final List<FarmBarn> farmBarns;
+    private final List<FarmSilo> farmSilos;
+    private final List<FarmStable> farmStables;
 
     public Farmland(String name, List<Villager> villagers) {
         super(name, villagers);
@@ -72,6 +70,13 @@ public class Farmland extends Territory implements ReadIntInput{
 
         System.out.print("\nAll the barns\n");
         printFarmBarns();
+        System.out.println("*****");
+        System.out.print("\nAll the farm silos\n");
+        printFarmSilos();
+        System.out.println("*****");
+        System.out.print("\nAll the stables\n");
+        printFarmStables();
+        System.out.println("*****");
     }
 
     // Create a farmer then put them with a barn, silo & stable
@@ -122,9 +127,27 @@ public class Farmland extends Territory implements ReadIntInput{
             // Put farmer in a barn, if the barn name already exists we don't need to create a new barn
             FarmBarn farmBarn = findOrCreateFarmBarn(barnName);
             farmBarn.addFarmer(farmer);
+
+            System.out.print("\nEnter silo to station farmer at: ");
+            String siloName = scanner.nextLine();
+
+            if (siloName.isEmpty()) {
+                siloName = "Silo " + this.name;
+            }
+
+            FarmSilo farmSilo = findOrCreateFarmSilo(siloName);
+            farmSilo.addFarmer(farmer);
+
+            System.out.print("\nEnter stable to station farmer at: ");
+            String stableName = scanner.nextLine();
+
+            if (stableName.isEmpty()) {
+                stableName = "Stable " + this.name;
+            }
+
+            FarmStable farmStable = findOrCreateFarmStable(stableName);
+            farmStable.addFarmer(farmer);
         }
-
-
 
     }
 
@@ -201,7 +224,7 @@ public class Farmland extends Territory implements ReadIntInput{
     public void printFarmBarns() {
         for (FarmBarn barn : farmBarns) {
             System.out.println("\nFarm Barn: " + barn.getBuildingName() + ", year built: " + barn.getBuildingYearBuilt() + ", windows: " + barn.getWindows() + ", doors: " + barn.getDoors());
-            System.out.println(("The animals held in this barn are "+barn.getAnimals()));
+            System.out.println(("The animals held in this barn are " + barn.getAnimals()));
             System.out.println("Farmers");
             System.out.println("______");
             for (Farmer farmer : barn.getFarmers()) {
@@ -213,7 +236,7 @@ public class Farmland extends Territory implements ReadIntInput{
     public void printFarmSilos() {
         for (FarmSilo silo : farmSilos) {
             System.out.println("\nFarm Silo: " + silo.getBuildingName() + ", year built: " + silo.getBuildingYearBuilt() + ", windows: " + silo.getWindows() + ", doors: " + silo.getDoors());
-            System.out.println(("The max storage capacity is "+silo.getMaxStorageCapacity()+"tonnes"));
+            System.out.println(("The max storage capacity is " + silo.getMaxStorageCapacity() + "tonnes"));
             System.out.println("Farmers");
             System.out.println("______");
             for (Farmer farmer : silo.getFarmers()) {
@@ -225,7 +248,7 @@ public class Farmland extends Territory implements ReadIntInput{
     public void printFarmStables() {
         for (FarmStable stable : farmStables) {
             System.out.println("\nFarm Barns: " + stable.getBuildingName() + ", year built: " + stable.getBuildingYearBuilt() + ", windows: " + stable.getWindows() + ", doors: " + stable.getDoors());
-            System.out.println(("Numbers of horses in the stable "+stable.getHorseNumbers()));
+            System.out.println(("Numbers of horses in the stable " + stable.getHorseNumbers()));
             System.out.println("Farmers");
             System.out.println("______");
             for (Farmer farmer : stable.getFarmers()) {

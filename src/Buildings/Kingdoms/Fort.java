@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Fort extends Building {
 
     private final String fortID;
-    private List<Knight> knights;
+    private final List<Knight> knights;
 
     public Fort(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);

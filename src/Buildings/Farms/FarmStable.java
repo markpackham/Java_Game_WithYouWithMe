@@ -13,7 +13,7 @@ import java.util.List;
 public class FarmStable extends Building implements AddFarmer{
 
     private int horseNumbers;
-    private List<Farmer> farmers;
+    private final List<Farmer> farmers;
 
     public FarmStable(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);

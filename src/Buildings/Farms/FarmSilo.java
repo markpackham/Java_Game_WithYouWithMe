@@ -12,7 +12,7 @@ public class FarmSilo extends Building implements AddFarmer {
 
     // Storage in tonnes, use double for flexibility for crazy large numbers
     private double maxStorageCapacity;
-    private List<Farmer> farmers;
+    private final List<Farmer> farmers;
 
     public FarmSilo(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);

@@ -12,7 +12,7 @@ public class Forge extends Building {
 
     // Boolean to see whether a lumber mill is attached to the forge
     private final boolean hasLumberMill;
-    private List<Blacksmith> blacksmiths;
+    private final List<Blacksmith> blacksmiths;
 
     public Forge(String buildingName, int buildingYearBuilt, int windows, int doors) {
         super(buildingName, buildingYearBuilt, windows, doors);
