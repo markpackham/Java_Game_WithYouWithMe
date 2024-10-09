@@ -223,6 +223,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             }
         }
 
+        // Defaults differ for barns, silos and stables
         int buildingYearBuilt = readIntInput("Enter year forge built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
         int windows = readIntInput("Enter number of windows forge has (default is 10): ", 10);
         int doors = readIntInput("Enter number of doors forge has (default is 2): ", 2);

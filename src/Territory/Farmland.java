@@ -8,11 +8,12 @@ import Villagers.Farmer;
 import Villagers.Villager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
 // Farmland can host silos with farmers but not have forts with knights and forges with blacksmiths
-public class Farmland extends Territory {
+public class Farmland extends Territory implements ReadIntInput{
 
     private final Scanner scanner;
     private List<FarmBarn> farmBarns;
@@ -124,9 +125,39 @@ public class Farmland extends Territory {
 
     }
 
+    // Build a barn for a farmer
     private FarmBarn findOrCreateFarmBarn(String barnName) {
+        for (FarmBarn barn : farmBarns) {
+            if (barn.getBuildingName().equals(barnName)) {
+                return barn;
+            }
+        }
 
-        return null;
+        // Defaults differ for barns, silos and stables
+        int buildingYearBuilt = readIntInput("Enter year barn built (enter nothing to use current year): ", Calendar.getInstance().get(Calendar.YEAR));
+        int windows = readIntInput("Enter number of windows barn has (default is 2): ", 2);
+        int doors = readIntInput("Enter number of doors barn has (default is 1): ", 1);
+
+        FarmBarn newFarmBarn = new FarmBarn(barnName, buildingYearBuilt, windows, doors);
+        farmBarns.add(newFarmBarn);
+        return newFarmBarn;
+    }
+
+
+
+    // Read inputs for barns, silos & stables, override interface
+    @Override
+    public int readIntInput(String prompt, int defaultValue) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        if (!input.isEmpty()) {
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Using default value: " + defaultValue);
+            }
+        }
+        return defaultValue;
     }
 
 }
