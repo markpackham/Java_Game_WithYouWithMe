@@ -18,7 +18,7 @@ To find the Javadoc as well as documents related to the project creation please 
 
 ### Optional Requirements ###
 
-If Unit testing is to be carried out in the future junit-jupiter-5.8.1 will be needed
+Unit testing is being carried out via junit-jupiter-5.8.1
 
 ### Install Dependencies & Run
 
@@ -66,7 +66,9 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 ## Unfinished Aspects / Future Scope ##
 
-1) Need to implement Unit tests.
+1) Need to implement more Unit tests, so far only done blacksmith, blacksmith school & forge ones since they don't require
+an Enum with user input for blacksmith creation.
+
 2) A greater focus on gameplay and resource management elements:
 - Inflict random famines or enemy attacks that need be mitigated by farmer & knight numbers.
 - Allow for population growth as long as there are enough farmers, blacksmiths & buildings to support it.
