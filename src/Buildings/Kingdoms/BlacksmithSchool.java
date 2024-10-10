@@ -26,6 +26,7 @@ public class BlacksmithSchool extends Building {
     public String getSchoolLevel() {
         return schoolLevel;
     }
+
     public void addSmith(Blacksmith blacksmith) {
         this.blacksmiths.add(blacksmith);
     }
