@@ -41,7 +41,7 @@ public class Main {
 
         System.out.println("\nReport Finished!");
 
-        System.out.print("Please type 'exit','quit' or 'q' to exit this program.");
+        System.out.print("Please type 'exit','quit' or 'q' to exit this program: ");
         String exitProgram = scanner.nextLine().toLowerCase();
 
         if(exitProgram.equalsIgnoreCase("exit") || exitProgram.equalsIgnoreCase("q") || exitProgram.equalsIgnoreCase("quit")){
