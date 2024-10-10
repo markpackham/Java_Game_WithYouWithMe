@@ -4,7 +4,6 @@ import Buildings.Kingdoms.BlacksmithSchool;
 import Villagers.Blacksmith;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BlacksmithSchoolTest {
@@ -23,9 +22,19 @@ public class BlacksmithSchoolTest {
         assertTrue(blacksmithSchool.getBlacksmiths().contains(blacksmith), "The blacksmith has been added to the school");
 
         // Check the first name of the smith we added to the school is correct
-        assertEquals(blacksmithSchool.getBlacksmiths().getFirst().getFirstName().equals("Dave"),"The blacksmith in our school really is Dave");
+        assertTrue(blacksmithSchool.getBlacksmiths().getFirst().getFirstName().equals("Dave"), "The blacksmith in our school really is Dave");
 
         // Check the only blacksmith that exists in the school is the sole one we created
-        assertTrue(blacksmithSchool.getBlacksmiths().size() <2, "The correct number of blacksmiths exist in the school");
+        assertTrue(blacksmithSchool.getBlacksmiths().size() < 2, "The correct number of blacksmiths exist in the school");
+
+        // School level must be an expected value
+        assertTrue(
+                blacksmithSchool.getSchoolLevel().equals("primary") ||
+                        blacksmithSchool.getSchoolLevel().equals("secondary") ||
+                        blacksmithSchool.getSchoolLevel().equals("graduate") ||
+                        blacksmithSchool.getSchoolLevel().equals("postgrad") ||
+                        blacksmithSchool.getSchoolLevel().equals("inventor"),
+                "Skill level be one of the 5 listed ones."
+        );
     }
 }
