@@ -88,14 +88,14 @@ public class Farmland extends Territory implements ReadIntInput {
             // Demo use of a do while loop
             do {
                 System.out.print("\nEnter farmer first name: ");
-                fName = scanner.nextLine();
+                fName = scanner.nextLine().trim();
             } while (fName.trim().isEmpty());
 
             // Use surname (the family name) instead of last name, more ye-old
             String sName;
             do {
                 System.out.print("Enter farmer surname: ");
-                sName = scanner.nextLine();
+                sName = scanner.nextLine().trim();
             } while (sName.trim().isEmpty());
 
             System.out.print("Enter farmer age (must be between 12-100 and defaults to 20): ");
@@ -118,7 +118,7 @@ public class Farmland extends Territory implements ReadIntInput {
 
             // Allow users to avoid having to add a farmer to a barn if you only want them for a silo or a stable
             System.out.print("\nEnter barn to station farmer at or type 's' to skip: ");
-            String barnName = scanner.nextLine();
+            String barnName = scanner.nextLine().trim();
 
             if (!barnName.equalsIgnoreCase("s")) {
                 // Use the farmland's name and "Barn" if user fails to enter anything
@@ -132,7 +132,7 @@ public class Farmland extends Territory implements ReadIntInput {
             }
 
             System.out.print("\nEnter silo to station farmer at or type 's' to skip: ");
-            String siloName = scanner.nextLine();
+            String siloName = scanner.nextLine().trim();
 
             if (!siloName.equalsIgnoreCase("s")) {
                 if (siloName.isEmpty()) {
@@ -144,7 +144,7 @@ public class Farmland extends Territory implements ReadIntInput {
             }
 
             System.out.print("\nEnter stable to station farmer at or type 's' to skip: ");
-            String stableName = scanner.nextLine();
+            String stableName = scanner.nextLine().trim();
 
             if (!stableName.equalsIgnoreCase("s")) {
                 if (stableName.isEmpty()) {

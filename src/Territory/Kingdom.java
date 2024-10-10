@@ -111,14 +111,14 @@ public class Kingdom extends Territory implements ReadIntInput {
             // Demo use of a do while loop
             do {
                 System.out.print("\nEnter knight first name: ");
-                fName = scanner.nextLine();
+                fName = scanner.nextLine().trim();
             } while (fName.trim().isEmpty());
 
             // Use surname (the family name) instead of last name, more ye-old
             String sName;
             do {
                 System.out.print("Enter knight surname: ");
-                sName = scanner.nextLine();
+                sName = scanner.nextLine().trim();
             } while (sName.trim().isEmpty());
 
             System.out.print("Enter knight age (must be between 12-100 and defaults to 20): ");
@@ -162,14 +162,14 @@ public class Kingdom extends Territory implements ReadIntInput {
             String fName;
             do {
                 System.out.print("\nEnter blacksmith first name: ");
-                fName = scanner.nextLine();
+                fName = scanner.nextLine().trim();
             } while (fName.trim().isEmpty());
 
             // Use surname instead of last name, more ye-old
             String sName;
             do {
                 System.out.print("Enter blacksmith surname: ");
-                sName = scanner.nextLine();
+                sName = scanner.nextLine().trim();
             } while (sName.trim().isEmpty());
 
             System.out.print("Enter blacksmith age (must be between 12-100 and defaults to 20): ");
@@ -190,7 +190,7 @@ public class Kingdom extends Territory implements ReadIntInput {
             this.villagers.add(blacksmith);
 
             System.out.print("\nEnter the forge to station the smith at: ");
-            String forgeName = scanner.nextLine();
+            String forgeName = scanner.nextLine().trim();
 
             // Use the Kingdom's name and "Forge" if user fails to enter anything
             if (forgeName.isEmpty()) {
