@@ -19,6 +19,8 @@ public class Blacksmith extends Villager implements VillagerPrinter {
         print();
     }
 
+
+
     public String getSkillLevel() {
         return skillLevel;
     }
