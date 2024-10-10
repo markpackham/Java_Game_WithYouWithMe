@@ -27,5 +27,9 @@ public class ForgeTest {
 
         // Check the only blacksmith that exists in the school is the sole one we created
         assertTrue(forge.getBlacksmiths().size() <2, "The correct number of blacksmiths exist in the forge");
+
+        // Check a boolean has been added to the forge to say whether it has a lumber mill
+        // It can be either true OR false to be correct, the key is to make sure the attribute is a boolean and not anything else
+        assertTrue(forge.isHasLumberMill() || !forge.isHasLumberMill(), "Check forge has attribute that assigns whether or not it has a lumber mill");
     }
 }
