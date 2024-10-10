@@ -87,18 +87,18 @@ public class Farmland extends Territory implements ReadIntInput {
             String fName;
             // Demo use of a do while loop
             do {
-                System.out.print("\nEnter first name: ");
+                System.out.print("\nEnter farmer first name: ");
                 fName = scanner.nextLine();
             } while (fName.trim().isEmpty());
 
             // Use surname (the family name) instead of last name, more ye-old
             String sName;
             do {
-                System.out.print("Enter surname: ");
+                System.out.print("Enter farmer surname: ");
                 sName = scanner.nextLine();
             } while (sName.trim().isEmpty());
 
-            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            System.out.print("Enter farmer age (must be between 12-100 and defaults to 20): ");
             // If user makes a mistake or enters nothing force the age to be 20
             int age;
             try {

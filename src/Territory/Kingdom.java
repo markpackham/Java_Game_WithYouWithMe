@@ -110,18 +110,18 @@ public class Kingdom extends Territory implements ReadIntInput {
             String fName;
             // Demo use of a do while loop
             do {
-                System.out.print("\nEnter first name: ");
+                System.out.print("\nEnter knight first name: ");
                 fName = scanner.nextLine();
             } while (fName.trim().isEmpty());
 
             // Use surname (the family name) instead of last name, more ye-old
             String sName;
             do {
-                System.out.print("Enter surname: ");
+                System.out.print("Enter knight surname: ");
                 sName = scanner.nextLine();
             } while (sName.trim().isEmpty());
 
-            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            System.out.print("Enter knight age (must be between 12-100 and defaults to 20): ");
             // If user makes a mistake or enters nothing force the age to be 20
             int age;
             try {
@@ -161,18 +161,18 @@ public class Kingdom extends Territory implements ReadIntInput {
         for (int i = 0; i < iterations; i++) {
             String fName;
             do {
-                System.out.print("\nEnter first name: ");
+                System.out.print("\nEnter blacksmith first name: ");
                 fName = scanner.nextLine();
             } while (fName.trim().isEmpty());
 
             // Use surname instead of last name, more ye-old
             String sName;
             do {
-                System.out.print("Enter surname: ");
+                System.out.print("Enter blacksmith surname: ");
                 sName = scanner.nextLine();
             } while (sName.trim().isEmpty());
 
-            System.out.print("Enter age (must be between 12-100 and defaults to 20): ");
+            System.out.print("Enter blacksmith age (must be between 12-100 and defaults to 20): ");
             // If user makes a mistake or enters nothing force the age to be 20
             int age;
             try {
