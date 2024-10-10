@@ -41,9 +41,9 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 ### Usage
 
-1) Run the Java based game.
+1) Run the Java based game, the entry point is the class "Main" found in "Java_Game_WithYouWithMe" in production and "src" in development / preproduction.
 
-2) Create a territory of type kingdom.
+2) Create a territory of type kingdom (or skip if you just want to make farmland)
 
 3) Create a set number of knights (0-10).
 
@@ -55,7 +55,7 @@ The code's original repo was https://github.com/markpackham/Java_WithYouWithMe b
 
 7) A report of the kingdom is generated.
 
-8) Create a territory of type farmland.
+8) Create a territory of type farmland (or skip if you don't want to make farmland).
 
 9) Create a set of farmers (0-10).
 
