@@ -2,7 +2,6 @@ package Buildings.Farms;
 
 import Buildings.Building;
 import Villagers.Farmer;
-import Villagers.Knight;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Belongs to Farmland
-public class FarmStable extends Building implements AddFarmer{
+public class FarmStable extends Building implements AddFarmer {
 
     private int horseNumbers;
     private final List<Farmer> farmers;

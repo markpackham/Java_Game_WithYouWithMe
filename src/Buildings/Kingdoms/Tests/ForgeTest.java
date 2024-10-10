@@ -23,10 +23,10 @@ public class ForgeTest {
         assertTrue(forge.getBlacksmiths().contains(blacksmith), "The blacksmith has been added to the forge");
 
         // Check the first name of the smith we added to the school is correct
-        assertTrue(forge.getBlacksmiths().getFirst().getFirstName().equals("Dave"),"The blacksmith in our forge really is Dave");
+        assertEquals("Dave", forge.getBlacksmiths().getFirst().getFirstName(), "The blacksmith in our forge really is Dave");
 
         // Check the only blacksmith that exists in the school is the sole one we created
-        assertTrue(forge.getBlacksmiths().size() <2, "The correct number of blacksmiths exist in the forge");
+        assertTrue(forge.getBlacksmiths().size() < 2, "The correct number of blacksmiths exist in the forge");
 
         // Check a boolean has been added to the forge to say whether it has a lumber mill
         // It can be either true OR false to be correct, the key is to make sure the attribute is a boolean and not anything else

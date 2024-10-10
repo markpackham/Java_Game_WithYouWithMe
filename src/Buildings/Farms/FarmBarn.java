@@ -2,7 +2,6 @@ package Buildings.Farms;
 
 import Buildings.Building;
 import Villagers.Farmer;
-import Villagers.Knight;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

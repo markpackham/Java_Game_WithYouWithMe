@@ -25,18 +25,18 @@ public class Main {
         String answer = scanner.nextLine();
 
         // Ignore case if user has capslock on by mistake
-        if(answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")){
+        if (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes")) {
             Kingdom kingdom = new Kingdom("", villagers);
-            System.out.println("\nReport on The Kingdom of "+kingdom.getName() + " complete!\n\n");
+            System.out.println("\nReport on The Kingdom of " + kingdom.getName() + " complete!\n\n");
         }
 
         // Farmland creation
         System.out.print("Do you want to create some farmland, please enter 'y' for 'yes' or anything else for 'no'? ");
         String answerFarmland = scanner.nextLine();
 
-        if(answerFarmland.equalsIgnoreCase("y") || answerFarmland.equalsIgnoreCase("yes")){
+        if (answerFarmland.equalsIgnoreCase("y") || answerFarmland.equalsIgnoreCase("yes")) {
             Farmland farmland = new Farmland("", villagers);
-            System.out.println("\nReport on the farmland of "+farmland.getName() + " complete!\n\n");
+            System.out.println("\nReport on the farmland of " + farmland.getName() + " complete!\n\n");
         }
 
         System.out.println("\nReport Finished!");
@@ -44,7 +44,7 @@ public class Main {
         System.out.print("Please type 'exit','quit' or 'q' to exit this program: ");
         String exitProgram = scanner.nextLine().toLowerCase();
 
-        if(exitProgram.equalsIgnoreCase("exit") || exitProgram.equalsIgnoreCase("q") || exitProgram.equalsIgnoreCase("quit")){
+        if (exitProgram.equalsIgnoreCase("exit") || exitProgram.equalsIgnoreCase("q") || exitProgram.equalsIgnoreCase("quit")) {
             // Exit the program
             System.exit(0);
         }
