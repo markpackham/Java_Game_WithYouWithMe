@@ -20,7 +20,15 @@ public class Territory {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public List<Villager> getVillagers() {
         return villagers;
+    }
+
+    public void setVillagers(List<Villager> villagers) {
+        this.villagers = villagers;
     }
 }
