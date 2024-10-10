@@ -12,8 +12,8 @@ public class Knight extends Villager implements VillagerPrinter {
     private Weapons weapon;
     private int strength;
 
-    public Knight(String firstName, String lastName, int age) {
-        super(firstName, lastName, age);
+    public Knight(String firstName, String surname, int age) {
+        super(firstName, surname, age);
         generateStrength();
         selectWeapon();
         System.out.println("\nKnight created\n");
@@ -64,7 +64,7 @@ public class Knight extends Villager implements VillagerPrinter {
     // Print out knight info
     @Override
     public void print() {
-        System.out.println("Name: " + this.FirstName + " " + this.LastName + " Age: " + this.Age);
+        System.out.println("Name: " + this.FirstName + " " + this.Surname + " Age: " + this.Age);
         System.out.println("Strength: " + getStrength());
         System.out.println("Weapon " + getWeapon());
     }

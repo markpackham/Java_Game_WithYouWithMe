@@ -5,12 +5,12 @@ public abstract class Villager {
 
     // Attributes protected since we need child classes of knights, blacksmiths and farmers to access them
     protected String FirstName;
-    protected String LastName;
+    protected String Surname;
     protected int Age;
 
-    public Villager(String firstName, String lastName, int age) {
+    public Villager(String firstName, String surname, int age) {
         FirstName = firstName;
-        LastName = lastName;
+        Surname = surname;
         Age = age;
     }
 
@@ -22,12 +22,12 @@ public abstract class Villager {
         FirstName = firstName;
     }
 
-    public String getLastName() {
-        return LastName;
+    public String getSurname() {
+        return Surname;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setSurname(String surname) {
+        Surname = surname;
     }
 
     public int getAge() {

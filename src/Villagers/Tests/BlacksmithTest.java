@@ -14,7 +14,7 @@ public class BlacksmithTest {
 
         // Check blacksmith attributes are correct on creation
         assertEquals("Dave", blacksmith.getFirstName());
-        assertEquals("Smith", blacksmith.getLastName());
+        assertEquals("Smith", blacksmith.getSurname());
         assertEquals(19, blacksmith.getAge());
 
         // Skill level must be an expected value

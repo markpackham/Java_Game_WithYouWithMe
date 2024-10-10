@@ -8,8 +8,8 @@ public class Farmer extends Villager implements VillagerPrinter {
 
     private FarmTools farmTool;
 
-    public Farmer(String firstName, String lastName, int age) {
-        super(firstName, lastName, age);
+    public Farmer(String firstName, String surname, int age) {
+        super(firstName, surname, age);
         selectTools();
         System.out.println("\nFarmer created\n");
         print();
@@ -48,7 +48,7 @@ public class Farmer extends Villager implements VillagerPrinter {
 
     @Override
     public void print() {
-        System.out.println("Name: " + this.FirstName + " " + this.LastName + " Age: " + this.Age);
+        System.out.println("Name: " + this.FirstName + " " + this.Surname + " Age: " + this.Age);
         System.out.println("Tool: " + getFarmTool());
     }
 }
