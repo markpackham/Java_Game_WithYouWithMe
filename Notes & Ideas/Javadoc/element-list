@@ -2,6 +2,8 @@ unnamed package
 Buildings
 Buildings.Farms
 Buildings.Kingdoms
+Buildings.Kingdoms.Tests
 Territory
 Villagers
 Villagers.Equipment
+Villagers.Tests

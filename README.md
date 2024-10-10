@@ -1,13 +1,20 @@
-# Java_Game_WithYouWithMe - Kingdom & Farmland creator
+# Java Game for WithYouWithMe - Kingdom & Farmland creator
 
 ## Game Purpose
 
-The goal of this game is to create a kingdom and farmland. You then populate them with various buildings, knight, farmers & blacksmiths.
+The goal of this game is to create a kingdom and farmland which are two types of territory.
+
+You then populate them with various villagers which are knights, farmers & blacksmiths.
+
+You have to put your villagers in relevant buildings so farmers go in silos, stables and barns, blacksmiths in forges and blacksmith schools while knights get placed in forts.
+
+At the end a report is generated of what you have created in your kingdom and farmland.
 
 The main purpose is to demo in the code object-oriented programming in Java and use common Java types, methods & control flow statements.
 
 #### Javadoc
-To find the Javadoc as well as documents related to the project creation please go to the folder - "Notes & Ideas".
+
+To find the JavaDoc as well as documents related to the project creation please go to the folder - "Notes & Ideas".
 
 ## Requirements
 
@@ -24,17 +31,17 @@ Unit testing is being carried out via junit-jupiter-5.8.1
 
 Obtain the code from https://github.com/markpackham/Java_Game_WithYouWithMe
 
-To edit or run the code install IntelliJ IDEA
+The best way to edit or run the code is to install IntelliJ IDEA.
 https://www.jetbrains.com/idea/
 
 
-### Obsolete
+### Obsolete Repo
 
 The code's original repo was https://github.com/markpackham/Java_WithYouWithMe before it was separated into its own project and moved into the repo https://github.com/markpackham/Java_Game_WithYouWithMe
 
 ### Usage
 
-1) Run game
+1) Run the Java based game.
 
 2) Create a territory of type kingdom.
 
